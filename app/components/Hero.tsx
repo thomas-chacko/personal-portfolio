@@ -25,7 +25,7 @@ export const Hero = () => {
                 className="absolute inset-0 z-0"
             >
                 <Image
-                    src="/assets/hero-bg.png"
+                    src="/assets/hero-background.jpg"
                     alt="Abstract Hero Background"
                     fill
                     priority
@@ -43,9 +43,9 @@ export const Hero = () => {
                     transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
                 >
                     <h1 className="mb-6 text-6xl font-bold tracking-tight md:text-8xl lg:text-9xl bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
-                        Creative.
+                        Thomas
                         <br />
-                        Developer.
+                        The Explorer
                     </h1>
                 </motion.div>
 
@@ -55,7 +55,7 @@ export const Hero = () => {
                     transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
                     className="max-w-xl text-lg text-white/70 md:text-xl font-light tracking-wide"
                 >
-                    Building digital experiences that blend aesthetic perfection with seamless functionality.
+                    Building the web, wandering the world. A personal gallery of pixels and peaks.
                 </motion.p>
             </div>
 
