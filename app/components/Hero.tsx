@@ -29,7 +29,7 @@ export const Hero = () => {
                     alt="Abstract Hero Background"
                     fill
                     priority
-                    className="object-cover opacity-80"
+                    className="object-cover opacity-80 object-[50%_15%]"
                     sizes="100vw"
                 />
                 <div className="absolute inset-0 bg-linear-to-b from-transparent via-black/20 to-black pointer-events-none" />
