@@ -32,7 +32,7 @@ export const Hero = () => {
                     className="object-cover opacity-80"
                     sizes="100vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-b from-transparent via-black/20 to-black pointer-events-none" />
             </motion.div>
 
             {/* Content */}
@@ -42,7 +42,7 @@ export const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
                 >
-                    <h1 className="mb-6 text-6xl font-bold tracking-tight md:text-8xl lg:text-9xl bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
+                    <h1 className="mb-6 text-6xl font-bold tracking-tight md:text-8xl lg:text-9xl bg-clip-text text-transparent bg-linear-to-b from-white to-white/60">
                         Thomas
                         <br />
                         The Explorer
@@ -71,7 +71,7 @@ export const Hero = () => {
                     <motion.div
                         animate={{ y: [0, 10, 0] }}
                         transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                        className="h-12 w-[1px] bg-gradient-to-b from-white to-transparent"
+                        className="h-12 w-[1px] bg-linear-to-b from-white to-transparent"
                     />
                 </div>
             </motion.div>
