@@ -27,7 +27,7 @@ export const Hero = () => {
                     alt="Hero Background"
                     fill
                     priority
-                    className="object-cover object-[50%_20%]"
+                    className="object-cover object-[55%_20%] lg:object-[10%_20%]"
                     sizes="100vw"
                 />
                 <div className="absolute inset-0 bg-black/30" />
