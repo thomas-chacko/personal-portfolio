@@ -44,8 +44,8 @@ export const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
                     >
-                        <h2 className="mb-4 flex items-center gap-4 text-xs font-bold tracking-[0.2em] uppercase text-white/60 md:text-sm">
-                            <span className="h-[1px] w-8 bg-white/60" />
+                        <h2 className="mb-6 flex items-center gap-3 text-sm font-bold tracking-[0.2em] uppercase text-white/70 md:mb-4 md:gap-4 md:text-sm">
+                            <span className="h-[1px] w-10 bg-white/70 md:w-8" />
                             Visual Storyteller
                         </h2>
                     </motion.div>
@@ -56,11 +56,11 @@ export const Hero = () => {
                             initial={{ y: "100%" }}
                             animate={{ y: "0%" }}
                             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-                            className="text-5xl sm:text-6xl font-black uppercase leading-[0.9] tracking-tighter mix-blend-screen md:text-8xl lg:text-[9rem]"
+                            className="text-6xl sm:text-7xl font-black uppercase leading-[0.85] tracking-tighter mix-blend-screen md:text-8xl lg:text-[9rem]"
                         >
                             Capturing
                             <br />
-                            <span className="text-transparent bg-clip-text bg-white/20 [-webkit-text-stroke:1px_rgba(255,255,255,0.8)]">The Moment</span>
+                            <span className="text-transparent bg-clip-text bg-white/20 [-webkit-text-stroke:1.5px_rgba(255,255,255,0.9)] md:[-webkit-text-stroke:1px_rgba(255,255,255,0.8)]">The Moment</span>
                         </motion.h1>
                     </div>
 
@@ -68,7 +68,7 @@ export const Hero = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1, delay: 0.8 }}
-                        className="mt-8 max-w-lg text-lg leading-relaxed text-white/80 font-light md:text-xl"
+                        className="mt-6 max-w-lg text-base leading-relaxed text-white/90 font-light md:mt-8 md:text-xl"
                     >
                         Exploring the world one frame at a time. From the peaks of Patagonia to the streets of Tokyo.
                     </motion.p>
@@ -77,12 +77,12 @@ export const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 1 }}
-                        className="mt-10 flex flex-wrap gap-6"
+                        className="mt-8 flex flex-col sm:flex-row flex-wrap gap-4 md:mt-10 md:gap-6"
                     >
-                        <button className="group relative overflow-hidden rounded-full bg-white px-8 py-3 text-sm font-bold tracking-widest text-black transition-all hover:bg-neutral-200">
+                        <button className="group relative overflow-hidden rounded-full bg-white px-10 py-4 text-sm font-bold tracking-widest text-black transition-all hover:bg-neutral-200 md:px-8 md:py-3">
                             <span className="relative z-10">VIEW GALLERY</span>
                         </button>
-                        <button className="group flex items-center gap-2 rounded-full border border-white/30 px-8 py-3 text-sm font-bold tracking-widest backdrop-blur-sm transition-all hover:bg-white/10">
+                        <button className="group flex items-center justify-center gap-2 rounded-full border-2 border-white/40 px-10 py-4 text-sm font-bold tracking-widest backdrop-blur-sm transition-all hover:bg-white/10 md:border md:px-8 md:py-3">
                             <span>CONTACT ME</span>
                         </button>
                     </motion.div>
