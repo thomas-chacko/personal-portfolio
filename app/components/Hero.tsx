@@ -112,12 +112,12 @@ export const Hero = () => {
                                     aria-label={social.name}
                                 >
                                     {/* Glow effect */}
-                                    <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${social.color} opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-70`} />
+                                    <div className={`absolute inset-0 rounded-full bg-linear-to-br ${social.color} opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-70`} />
 
                                     {/* Icon container */}
                                     <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/5 backdrop-blur-md transition-all duration-300 group-hover:border-white/40 group-hover:bg-white/10 md:h-14 md:w-14">
                                         {/* Gradient overlay on hover */}
-                                        <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${social.color} opacity-0 transition-opacity duration-300 group-hover:opacity-20`} />
+                                        <div className={`absolute inset-0 rounded-full bg-linear-to-br ${social.color} opacity-0 transition-opacity duration-300 group-hover:opacity-20`} />
 
                                         {/* SVG Icon */}
                                         <svg
