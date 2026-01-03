@@ -52,9 +52,9 @@ export const HorizontalScroll = () => {
                 {/* Stacked Cards in Center */}
                 <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-6 lg:p-8">
                     {achievements.map((item, index) => {
-                        // Calculate scroll progress with more overlap for smoother transitions
-                        const cardStart = index * 0.22; // Smoother progression
-                        const cardEnd = cardStart + 0.35; // Longer animation window
+                        // Calculate scroll progress - each card gets its own section
+                        const cardStart = index * 0.25; // Each card starts at 25% intervals
+                        const cardEnd = cardStart + 0.25; // Animation completes in 25% of scroll
                         
                         // Alternate direction: even indices from right, odd from left
                         const isFromRight = index % 2 === 0;
@@ -69,7 +69,7 @@ export const HorizontalScroll = () => {
                         // Smooth opacity fade
                         const opacity = useTransform(
                             scrollYProgress,
-                            [cardStart, cardStart + 0.15, cardEnd],
+                            [cardStart, cardStart + 0.1, cardEnd],
                             [0, 1, 1]
                         );
                         
@@ -169,35 +169,6 @@ export const HorizontalScroll = () => {
                         );
                     })}
                 </div>
-
-                {/* Scroll Indicator */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 1 }}
-                    className="absolute bottom-8 sm:bottom-12 left-0 right-0 z-20 text-center"
-                >
-                    <motion.div
-                        animate={{ y: [0, 8, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="inline-flex flex-col items-center gap-2 text-white/50 text-sm"
-                    >
-                        <span>Scroll to explore</span>
-                        <svg
-                            className="w-6 h-6"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                            />
-                        </svg>
-                    </motion.div>
-                </motion.div>
             </div>
         </section>
     );
