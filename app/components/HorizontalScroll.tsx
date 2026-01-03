@@ -46,8 +46,6 @@ export const HorizontalScroll = () => {
         { value: 100, suffix: "+", label: "Adventures", icon: "🎯" },
     ];
 
-    const x = useTransform(scrollYProgress, [0, 1], ["0%", `-${(achievements.length - 1) * 100}%`]);
-
     return (
         <section ref={containerRef} className="relative h-[400vh] bg-neutral-900">
             {/* Sticky Container */}
@@ -81,40 +79,56 @@ export const HorizontalScroll = () => {
                     />
                 </div>
 
-                {/* Section Title - Fixed */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="absolute top-8 sm:top-12 left-0 right-0 z-20 text-center"
-                >
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
-                        My Journey in Numbers
-                    </h3>
-                </motion.div>
-
-                {/* Horizontal Scrolling Cards */}
-                <motion.div
-                    style={{ x }}
-                    className="flex h-full items-center"
-                >
-                    {achievements.map((item, index) => (
-                        <div
-                            key={item.label}
-                            className="min-w-full h-full flex items-center justify-center px-4 sm:px-8 lg:px-16"
-                        >
+                {/* Stacked Cards in Center */}
+                <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-8 lg:px-16">
+                    {achievements.map((item, index) => {
+                        // Calculate scroll progress for each card
+                        const cardStart = index / achievements.length;
+                        const cardMid = (index + 0.5) / achievements.length;
+                        
+                        // Alternate direction: even indices from right, odd from left
+                        const isFromRight = index % 2 === 0;
+                        
+                        // Transform for sliding in from side - card stays after entering
+                        const x = useTransform(
+                            scrollYProgress,
+                            [cardStart, cardMid],
+                            [isFromRight ? 1000 : -1000, 0]
+                        );
+                        
+                        // Opacity - fade in and STAY visible
+                        const opacity = useTransform(
+                            scrollYProgress,
+                            [cardStart, cardMid],
+                            [0, 1]
+                        );
+                        
+                        // Scale effect - scale up and STAY at full size
+                        const scale = useTransform(
+                            scrollYProgress,
+                            [cardStart, cardMid],
+                            [0.8, 1]
+                        );
+                        
+                        return (
                             <motion.div
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true, amount: 0.5 }}
-                                transition={{
-                                    duration: 0.8,
-                                    ease: "easeOut",
+                                key={item.label}
+                                style={{ 
+                                    x, 
+                                    opacity, 
+                                    scale,
+                                    zIndex: index 
                                 }}
-                                whileHover={{ scale: 1.02, y: -10 }}
-                                className="group relative w-full max-w-2xl"
+                                className="absolute w-full max-w-2xl"
                             >
+                                <motion.div
+                                    whileHover={{ 
+                                        scale: 1.02, 
+                                        y: -10,
+                                        transition: { duration: 0.3 }
+                                    }}
+                                    className="group relative"
+                                >
                                 {/* Card */}
                                 <div className="relative rounded-3xl lg:rounded-4xl bg-linear-to-br from-white/10 to-white/5 p-8 sm:p-12 lg:p-16 backdrop-blur-2xl border border-white/20 hover:border-purple-500/50 transition-all overflow-hidden">
                                     {/* Animated Gradient Background */}
@@ -191,10 +205,11 @@ export const HorizontalScroll = () => {
                                     <div className="absolute top-0 right-0 w-32 sm:w-48 h-32 sm:h-48 bg-purple-500/20 blur-3xl group-hover:bg-purple-500/30 transition-all duration-700" />
                                     <div className="absolute bottom-0 left-0 w-32 sm:w-48 h-32 sm:h-48 bg-blue-500/20 blur-3xl group-hover:bg-blue-500/30 transition-all duration-700" />
                                 </div>
+                                </motion.div>
                             </motion.div>
-                        </div>
-                    ))}
-                </motion.div>
+                        );
+                    })}
+                </div>
 
                 {/* Scroll Indicator */}
                 <motion.div

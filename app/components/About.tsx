@@ -67,32 +67,7 @@ export const About = () => {
             <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-linear-to-br from-neutral-950 via-neutral-900 to-neutral-950" />
 
-                {/* Animated Gradient Orbs */}
-                <motion.div
-                    className="absolute -top-20 sm:-top-40 -right-20 sm:-right-40 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-purple-600/20 rounded-full blur-[100px] sm:blur-[150px]"
-                    animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.3, 0.5, 0.3],
-                    }}
-                    transition={{
-                        duration: 8,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                    }}
-                />
-                <motion.div
-                    className="absolute -bottom-20 sm:-bottom-40 -left-20 sm:-left-40 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-blue-600/20 rounded-full blur-[100px] sm:blur-[150px]"
-                    animate={{
-                        scale: [1.2, 1, 1.2],
-                        opacity: [0.5, 0.3, 0.5],
-                    }}
-                    transition={{
-                        duration: 8,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: 1,
-                    }}
-                />
+
 
                 {/* Grid Pattern Overlay */}
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] sm:bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
@@ -117,8 +92,8 @@ export const About = () => {
                             transition={{ duration: 0.6 }}
                             className="flex items-center gap-3"
                         >
-                            <div className="h-px w-12 sm:w-16 bg-linear-to-r from-purple-500 to-transparent" />
-                            <span className="text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.25em] text-purple-400 font-semibold">
+                            <div className="h-px w-12 sm:w-16 bg-linear-to-r from-white/50 to-transparent" />
+                            <span className="text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.25em] text-white/70 font-semibold">
                                 About Me
                             </span>
                         </motion.div>
@@ -133,7 +108,7 @@ export const About = () => {
                             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] sm:leading-[0.95] text-white">
                                 Bike Traveller
                                 <br />
-                                <span className="text-purple-400">& Explorer</span>
+                                <span className="text-white">& Explorer</span>
                             </h2>
                         </motion.div>
 
@@ -171,7 +146,7 @@ export const About = () => {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.4, delay: 0.4 + index * 0.05 }}
                                     whileHover={{ scale: 1.05, y: -2 }}
-                                    className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/5 border border-white/10 text-xs sm:text-sm text-white/80 backdrop-blur-sm hover:bg-white/10 hover:border-purple-500/30 transition-all cursor-default"
+                                    className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/5 border border-white/10 text-xs sm:text-sm text-white/80 backdrop-blur-sm hover:bg-white/10 hover:border-white/30 transition-all cursor-default"
                                 >
                                     {passion}
                                 </motion.span>
@@ -203,11 +178,10 @@ export const About = () => {
                                 />
                                 {/* Gradient Overlays */}
                                 <div className="absolute inset-0 bg-linear-to-t from-neutral-950 via-neutral-950/20 to-transparent" />
-                                <div className="absolute inset-0 bg-linear-to-br from-purple-600/20 via-transparent to-blue-600/20 opacity-60 mix-blend-overlay" />
 
                                 {/* Animated Border */}
                                 <motion.div
-                                    className="absolute inset-0 rounded-2xl sm:rounded-3xl border-2 border-purple-500/30"
+                                    className="absolute inset-0 rounded-2xl sm:rounded-3xl border-2 border-white/20"
                                     animate={{
                                         opacity: [0.3, 0.6, 0.3],
                                     }}
@@ -228,7 +202,7 @@ export const About = () => {
                                 className="absolute -bottom-4 sm:-bottom-8 left-4 sm:-left-8 right-4 sm:right-8 lg:right-auto lg:w-96"
                             >
                                 <div className="backdrop-blur-2xl bg-linear-to-br from-white/10 to-white/5 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/20 shadow-2xl">
-                                    <div className="text-4xl sm:text-6xl text-purple-400 mb-1 sm:mb-2 leading-none">"</div>
+                                    <div className="text-4xl sm:text-6xl text-white/70 mb-1 sm:mb-2 leading-none">"</div>
                                     <p className="text-white/90 text-sm sm:text-base italic leading-relaxed">
                                         Life is a journey, not a destination. Every mile brings a new story.
                                     </p>
