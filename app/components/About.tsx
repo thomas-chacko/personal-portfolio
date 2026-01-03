@@ -238,48 +238,7 @@ export const About = () => {
                     </motion.div>
                 </div>
 
-                {/* Achievements Grid with Horizontal Reverse Scroll */}
-                <motion.div
-                    style={{ x: xReverse, scale }}
-                    className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-12 sm:mb-16"
-                >
-                    {achievements.map((item, index) => (
-                        <motion.div
-                            key={item.label}
-                            initial={{ opacity: 0, y: 40, rotateX: -10 }}
-                            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                            viewport={{ once: true, margin: "-50px" }}
-                            transition={{
-                                duration: 0.6,
-                                delay: index * 0.1,
-                                ease: "easeOut"
-                            }}
-                        >
-                            <motion.div
-                                whileHover={{ y: -8, scale: 1.02 }}
-                                transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                                className="group relative h-full rounded-xl sm:rounded-2xl bg-linear-to-br from-white/[0.07] to-white/[0.02] p-4 sm:p-6 lg:p-8 backdrop-blur-xl border border-white/10 hover:border-purple-500/30 transition-all overflow-hidden"
-                            >
-                                {/* Gradient Background on Hover */}
-                                <div className="absolute inset-0 bg-linear-to-br from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                                {/* Content */}
-                                <div className="relative z-10">
-                                    <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">{item.icon}</div>
-                                    <div className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black mb-2 sm:mb-3 text-white">
-                                        <AnimatedCounter end={item.value} suffix={item.suffix} duration={2.5} />
-                                    </div>
-                                    <div className="text-xs sm:text-sm font-medium text-white/60 uppercase tracking-wide">
-                                        {item.label}
-                                    </div>
-                                </div>
-
-                                {/* Decorative Corner */}
-                                <div className="absolute top-0 right-0 w-16 sm:w-20 h-16 sm:h-20 bg-purple-500/10 blur-2xl group-hover:opacity-100 opacity-50 transition-opacity" />
-                            </motion.div>
-                        </motion.div>
-                    ))}
-                </motion.div>
             </motion.div>
         </section>
     );
