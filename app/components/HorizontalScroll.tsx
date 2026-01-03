@@ -38,16 +38,9 @@ export const HorizontalScroll = () => {
     ];
 
     return (
-        <section ref={containerRef} className="relative h-[300vh] bg-neutral-900">
+        <section ref={containerRef} className="relative h-[300vh] bg-neutral-950">
             {/* Sticky Container */}
             <div className="sticky top-0 h-screen w-full overflow-hidden will-change-transform">
-                {/* Background Effects */}
-                <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-neutral-950" />
-                    
-                    {/* Grid Pattern */}
-                    <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] sm:bg-[size:100px_100px]" />
-                </div>
 
                 {/* Stacked Cards in Center */}
                 <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-6 lg:p-8">

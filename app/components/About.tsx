@@ -67,15 +67,6 @@ export const About = () => {
 
     return (
         <section ref={containerRef} className="relative min-h-screen bg-neutral-900 text-white overflow-hidden">
-            {/* Animated Background */}
-            <div className="absolute inset-0">
-                <div className="absolute inset-0 bg-linear-to-br from-neutral-950 via-neutral-900 to-neutral-950" />
-
-
-
-                {/* Grid Pattern Overlay */}
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] sm:bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
-            </div>
 
             <motion.div
                 className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-12 py-16 sm:py-24 lg:py-32"

@@ -56,7 +56,7 @@ export const Hero = () => {
                             initial={{ y: "100%" }}
                             animate={{ y: "0%" }}
                             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-                            className="text-6xl sm:text-7xl font-black uppercase leading-[0.85] tracking-tighter mix-blend-screen md:text-8xl lg:text-[9rem]"
+                            className="text-6xl sm:text-7xl font-black uppercase leading-[1.20] md:leading-[0.90] tracking-tighter mix-blend-screen md:text-8xl lg:text-[9rem]"
                         >
                             Capturing
                             <br />
