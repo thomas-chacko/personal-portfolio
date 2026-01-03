@@ -38,9 +38,9 @@ export const HorizontalScroll = () => {
     ];
 
     return (
-        <section ref={containerRef} className="relative h-[400vh] bg-neutral-900">
+        <section ref={containerRef} className="relative h-[300vh] bg-neutral-900">
             {/* Sticky Container */}
-            <div className="sticky top-0 h-screen w-full overflow-hidden">
+            <div className="sticky top-0 h-screen w-full overflow-hidden will-change-transform">
                 {/* Background Effects */}
                 <div className="absolute inset-0">
                     <div className="absolute inset-0 bg-neutral-950" />
@@ -52,32 +52,32 @@ export const HorizontalScroll = () => {
                 {/* Stacked Cards in Center */}
                 <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-6 lg:p-8">
                     {achievements.map((item, index) => {
-                        // Calculate scroll progress for each card
-                        const cardStart = index / achievements.length;
-                        const cardMid = (index + 0.5) / achievements.length;
+                        // Calculate scroll progress with more overlap for smoother transitions
+                        const cardStart = index * 0.22; // Smoother progression
+                        const cardEnd = cardStart + 0.35; // Longer animation window
                         
                         // Alternate direction: even indices from right, odd from left
                         const isFromRight = index % 2 === 0;
                         
-                        // Transform for sliding in from side - card stays after entering
+                        // Transform for sliding with smooth easing
                         const x = useTransform(
                             scrollYProgress,
-                            [cardStart, cardMid],
-                            [isFromRight ? 1000 : -1000, 0]
+                            [cardStart, cardEnd],
+                            [isFromRight ? 600 : -600, 0]
                         );
                         
-                        // Opacity - fade in and STAY visible
+                        // Smooth opacity fade
                         const opacity = useTransform(
                             scrollYProgress,
-                            [cardStart, cardMid],
-                            [0, 1]
+                            [cardStart, cardStart + 0.15, cardEnd],
+                            [0, 1, 1]
                         );
                         
-                        // Scale effect - scale up and STAY at full size
+                        // Gentle scale effect
                         const scale = useTransform(
                             scrollYProgress,
-                            [cardStart, cardMid],
-                            [0.8, 1]
+                            [cardStart, cardEnd],
+                            [0.9, 1]
                         );
                         
                         return (
@@ -89,18 +89,22 @@ export const HorizontalScroll = () => {
                                     scale,
                                     zIndex: index 
                                 }}
-                                className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 lg:px-8"
+                                className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 lg:px-8 will-change-transform"
+                                transition={{ ease: [0.25, 0.1, 0.25, 1] }}
                             >
                                 <motion.div
                                     whileHover={{ 
                                         scale: 1.02, 
                                         y: -10,
-                                        transition: { duration: 0.3 }
+                                        transition: { 
+                                            duration: 0.3,
+                                            ease: [0.25, 0.1, 0.25, 1]
+                                        }
                                     }}
                                     className="group relative w-full max-w-2xl"
                                 >
                                     {/* Card */}
-                                    <div className="relative rounded-2xl sm:rounded-3xl bg-neutral-900 p-6 sm:p-8 lg:p-12 border border-white/10 hover:border-white/20 transition-all overflow-hidden shadow-2xl">
+                                    <div className="relative rounded-2xl sm:rounded-3xl bg-neutral-900 p-6 sm:p-8 lg:p-12 border border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden shadow-2xl">
                                         {/* Subtle gradient overlay */}
                                         <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
 
