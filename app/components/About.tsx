@@ -8,6 +8,7 @@ import Image from "next/image";
 const AnimatedCounter = ({ end, duration = 2, suffix = "" }: { end: number; duration?: number; suffix?: string }) => {
     const ref = useRef<HTMLSpanElement>(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
+    const countRef = useRef(0);
 
     return (
         <motion.span
@@ -17,16 +18,19 @@ const AnimatedCounter = ({ end, duration = 2, suffix = "" }: { end: number; dura
         >
             {isInView && (
                 <motion.span
-                    initial={{ textContent: "0" }}
-                    animate={{ textContent: end.toString() }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     transition={{ duration, ease: "easeOut" }}
-                    onUpdate={(latest: any) => {
-                        if (ref.current) {
-                            ref.current.textContent = Math.floor(latest.textContent) + suffix;
+                    onUpdate={() => {
+                        if (ref.current && isInView) {
+                            const progress = Math.min(countRef.current / duration, 1);
+                            const currentValue = Math.floor(progress * end);
+                            ref.current.textContent = currentValue + suffix;
+                            countRef.current += 0.016; // ~60fps
                         }
                     }}
                 >
-                    0
+                    {end}{suffix}
                 </motion.span>
             )}
         </motion.span>
