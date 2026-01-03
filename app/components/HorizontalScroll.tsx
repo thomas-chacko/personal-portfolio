@@ -1,40 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
-
-// Animated Counter Component
-const AnimatedCounter = ({ end, duration = 2, suffix = "" }: { end: number; duration?: number; suffix?: string }) => {
-    const ref = useRef<HTMLSpanElement>(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
-    const countRef = useRef(0);
-
-    return (
-        <motion.span
-            ref={ref}
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-        >
-            {isInView && (
-                <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration, ease: "easeOut" }}
-                    onUpdate={() => {
-                        if (ref.current && isInView) {
-                            const progress = Math.min(countRef.current / duration, 1);
-                            const currentValue = Math.floor(progress * end);
-                            ref.current.textContent = currentValue + suffix;
-                            countRef.current += 0.016; // ~60fps
-                        }
-                    }}
-                >
-                    {end}{suffix}
-                </motion.span>
-            )}
-        </motion.span>
-    );
-};
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export const HorizontalScroll = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -44,10 +11,30 @@ export const HorizontalScroll = () => {
     });
 
     const achievements = [
-        { value: 50, suffix: "+", label: "Places Explored", icon: "🗺️" },
-        { value: 200, suffix: "+", label: "Rides Completed", icon: "🏍️" },
-        { value: 15, suffix: "K", label: "Kilometers", icon: "⚡" },
-        { value: 100, suffix: "+", label: "Adventures", icon: "🎯" },
+        { 
+            icon: "🗺️",
+            title: "Places Explored", 
+            description: "From hidden mountain trails to coastal highways, every destination tells a unique story of adventure and discovery.",
+            highlight: "50+ Destinations"
+        },
+        { 
+            icon: "🏍️",
+            title: "Rides Completed", 
+            description: "Countless journeys across diverse terrains, each ride bringing new experiences and unforgettable memories.",
+            highlight: "200+ Adventures"
+        },
+        { 
+            icon: "⚡",
+            title: "Distance Covered", 
+            description: "Miles of open roads, winding paths, and scenic routes that have shaped my journey as a traveller.",
+            highlight: "15K+ Kilometers"
+        },
+        { 
+            icon: "🎯",
+            title: "Life Experiences", 
+            description: "Every trip is more than just a ride—it's about the people met, lessons learned, and moments cherished.",
+            highlight: "100+ Stories"
+        },
     ];
 
     return (
@@ -56,35 +43,14 @@ export const HorizontalScroll = () => {
             <div className="sticky top-0 h-screen w-full overflow-hidden">
                 {/* Background Effects */}
                 <div className="absolute inset-0">
-                    <motion.div
-                        className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[150px]"
-                        animate={{
-                            scale: [1, 1.2, 1],
-                            opacity: [0.3, 0.5, 0.3],
-                        }}
-                        transition={{
-                            duration: 8,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                        }}
-                    />
-                    <motion.div
-                        className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[150px]"
-                        animate={{
-                            scale: [1.2, 1, 1.2],
-                            opacity: [0.5, 0.3, 0.5],
-                        }}
-                        transition={{
-                            duration: 8,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            delay: 1,
-                        }}
-                    />
+                    <div className="absolute inset-0 bg-neutral-950" />
+                    
+                    {/* Grid Pattern */}
+                    <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] sm:bg-[size:100px_100px]" />
                 </div>
 
                 {/* Stacked Cards in Center */}
-                <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-8 lg:px-16">
+                <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-6 lg:p-8">
                     {achievements.map((item, index) => {
                         // Calculate scroll progress for each card
                         const cardStart = index / achievements.length;
@@ -116,14 +82,14 @@ export const HorizontalScroll = () => {
                         
                         return (
                             <motion.div
-                                key={item.label}
+                                key={item.title}
                                 style={{ 
                                     x, 
                                     opacity, 
                                     scale,
                                     zIndex: index 
                                 }}
-                                className="absolute w-full max-w-2xl"
+                                className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 lg:px-8"
                             >
                                 <motion.div
                                     whileHover={{ 
@@ -131,84 +97,69 @@ export const HorizontalScroll = () => {
                                         y: -10,
                                         transition: { duration: 0.3 }
                                     }}
-                                    className="group relative"
+                                    className="group relative w-full max-w-2xl"
                                 >
-                                {/* Card */}
-                                <div className="relative rounded-3xl lg:rounded-4xl bg-linear-to-br from-white/10 to-white/5 p-8 sm:p-12 lg:p-16 backdrop-blur-2xl border border-white/20 hover:border-purple-500/50 transition-all overflow-hidden">
-                                    {/* Animated Gradient Background */}
-                                    <motion.div
-                                        className="absolute inset-0 bg-linear-to-br from-purple-500/20 via-pink-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                                        animate={{
-                                            backgroundPosition: ["0% 0%", "100% 100%"],
-                                        }}
-                                        transition={{
-                                            duration: 5,
-                                            repeat: Infinity,
-                                            repeatType: "reverse",
-                                        }}
-                                    />
+                                    {/* Card */}
+                                    <div className="relative rounded-2xl sm:rounded-3xl bg-neutral-900 p-6 sm:p-8 lg:p-12 border border-white/10 hover:border-white/20 transition-all overflow-hidden shadow-2xl">
+                                        {/* Subtle gradient overlay */}
+                                        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
 
-                                    {/* Outer Glow */}
-                                    <div className="absolute -inset-2 bg-linear-to-br from-purple-500/30 to-blue-500/30 rounded-3xl lg:rounded-4xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                                        {/* Content */}
+                                        <div className="relative z-10">
+                                            {/* Icon */}
+                                            <motion.div
+                                                className="text-5xl sm:text-6xl lg:text-7xl mb-4 sm:mb-6"
+                                                whileHover={{
+                                                    rotate: [0, -10, 10, -10, 0],
+                                                    scale: 1.1,
+                                                }}
+                                                transition={{ duration: 0.5 }}
+                                            >
+                                                {item.icon}
+                                            </motion.div>
 
-                                    {/* Content */}
-                                    <div className="relative z-10 text-center">
-                                        {/* Icon */}
-                                        <motion.div
-                                            className="text-7xl sm:text-8xl lg:text-9xl mb-6 sm:mb-8"
-                                            whileHover={{
-                                                rotate: [0, -15, 15, -15, 0],
-                                                scale: 1.2,
-                                            }}
-                                            transition={{ duration: 0.6 }}
-                                        >
-                                            {item.icon}
-                                        </motion.div>
+                                            {/* Highlight */}
+                                            <div className="text-3xl sm:text-4xl lg:text-5xl font-black mb-3 sm:mb-4 text-white">
+                                                {item.highlight}
+                                            </div>
 
-                                        {/* Counter */}
-                                        <div className="text-7xl sm:text-8xl lg:text-9xl font-black mb-4 sm:mb-6 text-white">
-                                            <AnimatedCounter
-                                                end={item.value}
-                                                suffix={item.suffix}
-                                                duration={2.5}
+                                            {/* Title */}
+                                            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4">
+                                                {item.title}
+                                            </h3>
+
+                                            {/* Description */}
+                                            <p className="text-sm sm:text-base lg:text-lg text-white/70 leading-relaxed">
+                                                {item.description}
+                                            </p>
+
+                                            {/* Decorative Line */}
+                                            <motion.div
+                                                className="mt-6 sm:mt-8 h-1 bg-gradient-to-r from-white/50 via-white/20 to-transparent rounded-full"
+                                                initial={{ width: 0 }}
+                                                whileInView={{ width: "100%" }}
+                                                viewport={{ once: true }}
+                                                transition={{
+                                                    duration: 1,
+                                                    delay: 0.3,
+                                                }}
                                             />
-                                        </div>
 
-                                        {/* Label */}
-                                        <div className="text-lg sm:text-xl lg:text-2xl font-bold text-white/80 uppercase tracking-wider mb-6 sm:mb-8">
-                                            {item.label}
-                                        </div>
-
-                                        {/* Decorative Line */}
-                                        <motion.div
-                                            className="mx-auto h-1.5 bg-linear-to-r from-transparent via-purple-500 to-transparent rounded-full"
-                                            initial={{ width: 0 }}
-                                            whileInView={{ width: "80%" }}
-                                            viewport={{ once: true }}
-                                            transition={{
-                                                duration: 1,
-                                                delay: 0.5,
-                                            }}
-                                        />
-
-                                        {/* Progress Indicator */}
-                                        <div className="mt-8 sm:mt-12 flex items-center justify-center gap-2">
-                                            {achievements.map((_, i) => (
-                                                <motion.div
-                                                    key={i}
-                                                    className={`h-2 rounded-full transition-all duration-300 ${i === index
-                                                            ? "w-8 bg-purple-500"
-                                                            : "w-2 bg-white/30"
+                                            {/* Progress Indicator */}
+                                            <div className="mt-6 sm:mt-8 flex items-center justify-center gap-2">
+                                                {achievements.map((_, i) => (
+                                                    <div
+                                                        key={i}
+                                                        className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
+                                                            i === index
+                                                                ? "w-6 sm:w-8 bg-white"
+                                                                : "w-1.5 sm:w-2 bg-white/30"
                                                         }`}
-                                                />
-                                            ))}
+                                                    />
+                                                ))}
+                                            </div>
                                         </div>
                                     </div>
-
-                                    {/* Corner Glows */}
-                                    <div className="absolute top-0 right-0 w-32 sm:w-48 h-32 sm:h-48 bg-purple-500/20 blur-3xl group-hover:bg-purple-500/30 transition-all duration-700" />
-                                    <div className="absolute bottom-0 left-0 w-32 sm:w-48 h-32 sm:h-48 bg-blue-500/20 blur-3xl group-hover:bg-blue-500/30 transition-all duration-700" />
-                                </div>
                                 </motion.div>
                             </motion.div>
                         );
