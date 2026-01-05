@@ -71,7 +71,7 @@ const Card = ({ item }: { item: JourneyItem }) => {
             transition={{ duration: 0.4 }}
         >
             {/* Glass Card Container */}
-            <div className="absolute inset-0 rounded-4xl bg-neutral-900/80 backdrop-blur-xl border border-white/10 overflow-hidden shadow-2xl transition-all duration-500 group-hover:border-white/20">
+            <div className="absolute inset-0 rounded-4xl bg-neutral-900/90 backdrop-blur-md border border-white/10 overflow-hidden shadow-2xl transition-all duration-500 group-hover:border-white/20">
 
                 {/* Visual Header (Image) */}
                 <div className="relative h-1/2 w-full overflow-hidden">
@@ -98,13 +98,13 @@ const Card = ({ item }: { item: JourneyItem }) => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="absolute bottom-6 left-6 px-4 py-2 rounded-full bg-black/20 backdrop-blur-md border border-white/20 text-white font-mono text-sm"
+                        className="absolute bottom-6 left-6 px-4 py-2 rounded-full bg-black/60 border border-white/20 text-white font-mono text-sm"
                     >
                         {item.stats}
                     </motion.div>
 
                     {/* Icon SVG */}
-                    <div className="absolute top-6 left-6 w-12 h-12 p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white">
+                    <div className="absolute top-6 left-6 w-12 h-12 p-3 rounded-2xl bg-white/10 border border-white/20 text-white">
                         <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
                             <path d={item.icon} />
                         </svg>
@@ -168,12 +168,12 @@ export const HorizontalScroll = () => {
 
                 {/* Decorative Background Elements */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div className="absolute top-[20%] right-[10%] w-120 h-120 bg-blue-500/10 rounded-full blur-[100px]" />
-                    <div className="absolute bottom-[20%] left-[10%] w-80 h-80 bg-purple-500/5 rounded-full blur-[80px]" />
+                    <div className="absolute top-[20%] right-[10%] w-120 h-120 bg-blue-500/5 rounded-full blur-3xl" />
+                    <div className="absolute bottom-[20%] left-[10%] w-80 h-80 bg-purple-500/5 rounded-full blur-3xl" />
                 </div>
 
                 {/* Horizontal Track */}
-                <motion.div style={{ x: springX }} className="flex gap-8 sm:gap-16 px-8 sm:px-24">
+                <motion.div style={{ x: springX }} className="flex gap-8 sm:gap-16 px-8 sm:px-24 will-change-transform">
                     {/* Introductory Title Block (First item in scroll) */}
                     <div className="flex flex-col justify-center min-w-[300px] sm:min-w-[400px]">
                         <motion.h2

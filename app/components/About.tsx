@@ -196,7 +196,7 @@ export const About = () => {
                                 transition={{ duration: 0.6, delay: 0.5 }}
                                 className="absolute -bottom-4 sm:-bottom-8 left-4 sm:-left-8 right-4 sm:right-8 lg:right-auto lg:w-96"
                             >
-                                <div className="backdrop-blur-2xl bg-linear-to-br from-white/10 to-white/5 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/20 shadow-2xl">
+                                <div className="backdrop-blur-md bg-linear-to-br from-neutral-900/90 to-neutral-800/90 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/20 shadow-2xl">
                                     <div className="text-4xl sm:text-6xl text-white/70 mb-1 sm:mb-2 leading-none">"</div>
                                     <p className="text-white/90 text-sm sm:text-base italic leading-relaxed">
                                         Life is a journey, not a destination. Every mile brings a new story.
