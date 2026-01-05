@@ -45,13 +45,13 @@ export const Hero = () => {
                     >
                         <div className="h-px w-12 bg-white/50" />
                         <span className="text-sm font-medium tracking-[0.3em] text-white/80 uppercase">
-                            Software Developer • Weekend Explorer
+                            Traveler • Explorer • Storyteller
                         </span>
                     </motion.div>
 
                     <h1 className="text-6xl sm:text-8xl lg:text-[10rem] leading-[0.85] font-black tracking-tighter text-white">
-                        BEYOND <br />
-                        {/* <span className="text-transparent" style={{ WebkitTextStroke: "1px rgba(255, 255, 255, 0.5)" }}>HORIZONS</span> */}
+                        BEYOND
+                        <br />
                         <span className="text-transparent bg-clip-text bg-white/20 [-webkit-text-stroke:1.5px_rgba(255,255,255,0.9)] md:[-webkit-text-stroke:1px_rgba(255,255,255,0.8)]">HORIZONS</span>
                     </h1>
 
@@ -64,16 +64,19 @@ export const Hero = () => {
 
             {/* Scroll Indicator */}
             <motion.div
-                style={{ opacity }}
-                className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 text-white/30"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.6, duration: 1 }}
+                className="absolute bottom-10 left-1/2 -translate-x-1/2"
             >
-                <span className="text-[10px] tracking-[0.2em] uppercase">Scroll</span>
-                <div className="h-12 w-px bg-white/20 overflow-hidden">
+                <div className="flex flex-col items-center gap-2">
                     <motion.div
-                        animate={{ y: ["-100%", "100%"] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                        className="h-1/2 w-full bg-white"
-                    />
+                        animate={{ y: [0, 8, 0] }}
+                        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                        className="h-10 w-6 rounded-full border-2 border-white/30 flex justify-center p-1"
+                    >
+                        <div className="w-1 h-2 bg-white rounded-full" />
+                    </motion.div>
                 </div>
             </motion.div>
         </section>
