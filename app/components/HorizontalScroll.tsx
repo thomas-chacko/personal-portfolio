@@ -18,47 +18,47 @@ interface JourneyItem {
 const items: JourneyItem[] = [
     {
         id: "01",
-        title: "The Beginning",
-        subtitle: "First Gear",
-        description: "It started with a map and a full tank. The first 500 kilometers taught me more about patience than years of routine.",
-        stats: "500 km",
-        icon: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z", // Simple circle/globe
+        title: "Breakfast Run",
+        subtitle: "Early Mornings",
+        description: "6:00 AM starts, empty highways, and the search for the perfect local breakfast. The best way to start a Sunday.",
+        stats: "150 km",
+        icon: "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z", // Sun icon
         image: "/assets/hero-background.jpg"
     },
     {
         id: "02",
-        title: "Mountain Passes",
-        subtitle: "High Altitude",
-        description: "Navigating through the clouds. The air gets thinner, but the spirit touches the sky. Every turn reveals a new masterpiece.",
-        stats: "18,380 ft",
-        icon: "M3 20h18L12 4z", // Mountain triangle
+        title: "Off-Road Trails",
+        subtitle: "Technical Terrain",
+        description: "Leaving the tarmac behind. Testing machine and mind against mud, rocks, and steep inclines.",
+        stats: "Level 3",
+        icon: "M3 20h18L12 4z", // Mountain
         image: "/assets/hero-background.jpg"
     },
     {
         id: "03",
-        title: "Coastal Highways",
-        subtitle: "Ocean Breeze",
-        description: "Racing the waves along the edge of the continent. The smell of salt and the sound of crashing tides as my constant companions.",
-        stats: "1,200 km",
-        icon: "M2 20h20M2 16c4-3 8 3 12-2s8 3 8 3", // Waves
+        title: "Evening Spins",
+        subtitle: "Sunset Chaser",
+        description: "A quick escapade to clear the cache after a long day of debugging code.",
+        stats: "50 km",
+        icon: "M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z", // Moon icon
         image: "/assets/hero-background.jpg"
     },
     {
         id: "04",
-        title: "Desert Crossing",
-        subtitle: "Endless Sands",
-        description: "Where the road melts into the horizon. Testing endurance against the heat and vast emptiness of the arid plains.",
-        stats: "45° C",
-        icon: "M12 3v18M3 12h18", // Sun/Cross
+        title: "Weekend Escapes",
+        subtitle: "No Laptop",
+        description: "48 hours of pure disconnection. Camping under stars and waking up to bird calls instead of alarms.",
+        stats: "2 Days",
+        icon: "M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2h-1V1", // Calendar/Camping
         image: "/assets/hero-background.jpg"
     },
     {
         id: "05",
-        title: "The Unseen",
-        subtitle: "Hidden Gems",
-        description: "Venturing off the beaten path to discover villages and cultures that maps often forget to mention.",
-        stats: "Unlimited",
-        icon: "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5", // Map/layers
+        title: "The Long Haul",
+        subtitle: "State Crossing",
+        description: "Endurance rides across state lines. Just me, the machine, and the endless ribbon of asphalt.",
+        stats: "1000+ km",
+        icon: "M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7", // Map
         image: "/assets/hero-background.jpg"
     }
 ];

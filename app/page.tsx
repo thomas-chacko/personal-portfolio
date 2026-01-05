@@ -8,7 +8,7 @@ export default function Home() {
       <Hero />
       <About />
       <HorizontalScroll />
-      <div className="w-full h-screen">hi</div>
+      <div className="w-full h-screen" />
     </main>
   );
 }
