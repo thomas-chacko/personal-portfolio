@@ -83,7 +83,7 @@ const ParallaxManifesto = () => {
                 style={{ y: yFast }}
                 className="relative self-start w-full max-w-lg group"
             >
-                <div className="absolute -left-8 -top-12 text-[10rem] leading-none font-black text-white/[0.02] select-none -z-10 group-hover:text-white/[0.05] transition-colors">01</div>
+                <div className="hidden lg:block absolute -left-8 -top-12 text-[10rem] leading-none font-black text-white/[0.02] select-none -z-10 group-hover:text-white/[0.05] transition-colors">01</div>
                 <div className="border-l-4 border-red-500 pl-6 py-2 backdrop-blur-sm bg-black/20 rounded-r-xl">
                     <h4 className="text-3xl font-bold text-white mb-2">The Analog Escape</h4>
                     <div className="h-px w-12 bg-white/20 mb-4" />
@@ -99,7 +99,7 @@ const ParallaxManifesto = () => {
                 style={{ y: ySlow }}
                 className="relative self-end w-full max-w-lg text-right group"
             >
-                <div className="absolute -right-8 -top-12 text-[10rem] leading-none font-black text-white/[0.02] select-none -z-10 group-hover:text-white/[0.05] transition-colors">02</div>
+                <div className="hidden lg:block absolute -right-8 -top-12 text-[10rem] leading-none font-black text-white/[0.02] select-none -z-10 group-hover:text-white/[0.05] transition-colors">02</div>
                 <div className="border-r-4 border-blue-500 pr-6 py-2 backdrop-blur-sm bg-black/20 rounded-l-xl flex flex-col items-end">
                     <h4 className="text-3xl font-bold text-white mb-2">Mental Defrag</h4>
                     <div className="h-px w-12 bg-white/20 mb-4" />
