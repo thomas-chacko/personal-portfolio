@@ -145,16 +145,16 @@ export const HorizontalScroll = () => {
         target: targetRef,
     });
 
-    const x = useTransform(scrollYProgress, [0, 1], ["2%", "-85%"]);
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-85%"]);
 
-    // Smooth out the motion
-    const springX = useSpring(x, { stiffness: 400, damping: 90 });
+    // Removed useSpring to eliminate "stuck/laggy" feeling and provide direct 1:1 scroll response
+    // const springX = useSpring(x, { stiffness: 400, damping: 90 });
 
     const backgroundTextX = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
     const opacity = useTransform(scrollYProgress, [0.9, 1], [1, 0]);
 
     return (
-        <section ref={targetRef} className="relative h-[400vh] bg-neutral-950">
+        <section ref={targetRef} className="relative h-[300vh] bg-neutral-950">
             {/* Sticky Container */}
             <div className="sticky top-0 flex h-screen items-center overflow-hidden">
 
@@ -173,7 +173,7 @@ export const HorizontalScroll = () => {
                 </div>
 
                 {/* Horizontal Track */}
-                <motion.div style={{ x: springX }} className="flex gap-8 sm:gap-16 px-8 sm:px-24 will-change-transform">
+                <motion.div style={{ x }} className="flex gap-8 sm:gap-16 px-8 sm:px-24 will-change-transform">
                     {/* Introductory Title Block (First item in scroll) */}
                     <div className="flex flex-col justify-center min-w-[300px] sm:min-w-[400px]">
                         <motion.h2

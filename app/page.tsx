@@ -7,8 +7,8 @@ export default function Home() {
     <main className="bg-neutral-950 min-h-screen text-white">
       <Hero />
       <About />
-      <HorizontalScroll />
-      <div className="w-full h-screen" />
+      {/* <HorizontalScroll /> */}
+      <div className="w-full h-screen bg-red-500" />
     </main>
   );
 }

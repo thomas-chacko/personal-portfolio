@@ -26,7 +26,7 @@ const TextReveal = ({ children }: { children: string }) => {
                 {words.map((word, wordIndex) => {
                     const letters = word.split("");
                     return (
-                        <span key={wordIndex} className="flex">
+                        <span key={wordIndex} className="flex leading-20  lg:leading-40">
                             {letters.map((letter, letterIndex) => {
                                 // Calculate a unique range for each letter across the whole text
                                 const step = 1 / (children.length);
