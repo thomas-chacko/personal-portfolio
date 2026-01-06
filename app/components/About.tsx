@@ -123,12 +123,53 @@ export const About = () => {
                             <p className="mt-6 text-sm tracking-widest text-white/40 uppercase text-right">01 &mdash; Mountain Passes</p>
                         </div>
 
-                        {/* Text Block */}
-                        <div className="max-w-2xl py-12">
-                            <p className="text-3xl sm:text-4xl leading-tight font-light text-white/80">
-                                <span className="text-white font-normal">I ride to disconnect</span>.
-                                The road is a silent therapist, providing the clarity that no amount of code reviews can offer.
-                            </p>
+                        {/* Parallax Manifesto Section */}
+                        <div className="py-12 lg:py-32 relative z-10 flex flex-col gap-24">
+
+                            {/* Card 01 - Moves Faster */}
+                            <motion.div
+                                style={{ y: useTransform(scrollYProgress, [0, 1], [0, -100]) }}
+                                className="relative self-start w-full max-w-md"
+                            >
+                                <div className="absolute -left-4 -top-8 text-8xl font-black text-white/[0.02] select-none">01</div>
+                                <h4 className="text-2xl font-bold text-white mb-4 border-l-2 border-red-500 pl-4">Signal vs Noise</h4>
+                                <p className="text-neutral-400 leading-relaxed">
+                                    In an ecosystem of constant pings, slacks, and jira tickets, the helmet becomes a sanctuary.
+                                    There are no notifications here. Just the raw input of wind, engine frequency, and the road ahead.
+                                    It's a complete <span className="text-white">system interrupt</span> for the digital mind.
+                                </p>
+                            </motion.div>
+
+                            {/* Card 02 - Moves Slower (Stays longer) */}
+                            <motion.div
+                                style={{ y: useTransform(scrollYProgress, [0, 1], [0, 50]) }}
+                                className="relative self-end w-full max-w-md text-right"
+                            >
+                                <div className="absolute -right-4 -top-8 text-8xl font-black text-white/[0.02] select-none">02</div>
+                                <h4 className="text-2xl font-bold text-white mb-4 border-r-2 border-blue-500 pr-4">Debugging Reality</h4>
+                                <p className="text-neutral-400 leading-relaxed">
+                                    Code is deterministic; if (a) then (b). The road is dynamic. A patch of gravel, a sudden rainstorm, a stray dog...
+                                    it demands <span className="text-white">total presence</span>. You can't autopilot through a hairpin turn.
+                                    This forced focus clears the cognitive cache better than any sleep mode.
+                                </p>
+                            </motion.div>
+
+                            {/* Card 03 - Neural Shift */}
+                            <motion.div
+                                style={{ y: useTransform(scrollYProgress, [0, 1], [0, -50]) }}
+                                className="relative self-center w-full max-w-md p-8 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm"
+                            >
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+                                <h4 className="text-xl font-mono text-purple-400 mb-4 tracking-widest uppercase">The Return Value</h4>
+                                <p className="text-lg text-white/80 font-light leading-relaxed">
+                                    "I don't ride to escape life, but to prevent life from escaping me."
+                                </p>
+                                <div className="mt-6 flex items-center gap-3 text-sm text-neutral-500 font-mono">
+                                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                                    <span>Battery_Recharged.init()</span>
+                                </div>
+                            </motion.div>
+
                         </div>
 
                         {/* Image 2 (Simulated with div as we only have one placeholder) */}
