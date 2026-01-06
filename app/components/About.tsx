@@ -11,6 +11,59 @@ const stats = [
     { label: "Weekend Rides", value: "∞" },
 ];
 
+const TextReveal = ({ children }: { children: string }) => {
+    const target = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: target,
+        offset: ["start 0.8", "end 0.2"],
+    });
+
+    const words = children.split(" ");
+
+    return (
+        <div ref={target} className="flex flex-wrap items-center py-2 lg:py-24 lg:min-h-[50vh] relative">
+            <h3 className="text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter leading-[0.85] flex flex-wrap gap-x-3 md:gap-x-8 gap-y-0 z-10 w-full">
+                {words.map((word, wordIndex) => {
+                    const letters = word.split("");
+                    return (
+                        <span key={wordIndex} className="flex">
+                            {letters.map((letter, letterIndex) => {
+                                // Calculate a unique range for each letter across the whole text
+                                const step = 1 / (children.length);
+                                // Absolute index in the string approx
+                                const absIndex = children.indexOf(word) + letterIndex;
+                                // Actually easier to just map the index if we flattened it, but let's approximate nicely:
+                                // To make it "fill" as we scroll, we want the early letters to fill first.
+                                // Let's use the container's scroll progress.
+                                // We need to offset the start/end for each letter.
+
+                                // Adjusting range to be within the "visible" scroll area (e.g., 0.2 to 0.8)
+                                const start = (absIndex / children.length) * 0.5 + 0.2;
+                                const end = start + 0.1;
+
+                                return (
+                                    <Char key={letterIndex} progress={scrollYProgress} range={[start, end]}>
+                                        {letter}
+                                    </Char>
+                                );
+                            })}
+                        </span>
+                    );
+                })}
+            </h3>
+        </div>
+    );
+};
+
+const Char = ({ progress, range, children }: { progress: any, range: [number, number], children: string }) => {
+    const opacity = useTransform(progress, range, [0.1, 1]);
+    return (
+        <motion.span style={{ opacity }} className="relative text-white">
+            {children}
+        </motion.span>
+    );
+};
+
 export const About = () => {
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -21,7 +74,7 @@ export const About = () => {
     const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
     return (
-        <section ref={container} className="relative py-32 bg-neutral-950 text-white z-10">
+        <section ref={container} className="relative py-16 lg:py-32 bg-neutral-950 text-white z-10 border-b border-white/5">
             <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-12">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
 
@@ -53,7 +106,7 @@ export const About = () => {
                     </div>
 
                     {/* Scrolling Content */}
-                    <div className="lg:w-2/3 flex flex-col gap-32 pt-12 lg:pt-0">
+                    <div className="lg:w-2/3 flex flex-col gap-16 lg:gap-32 pt-12 lg:pt-0">
                         {/* Image 1 */}
                         <div className="relative group">
                             <div className="overflow-hidden rounded-sm">
@@ -79,20 +132,10 @@ export const About = () => {
                         </div>
 
                         {/* Image 2 (Simulated with div as we only have one placeholder) */}
-                        <div className="relative group pl-12 sm:pl-24">
-                            <div className="overflow-hidden rounded-sm">
-                                <motion.div style={{ y: useTransform(scrollYProgress, [0, 1], [-50, 50]) }} className="relative h-[50vh] w-full bg-neutral-900 border border-white/5">
-                                    {/* Placeholder specific logic to re-use image but look different */}
-                                    <Image
-                                        src="/assets/hero-background.jpg"
-                                        alt="Coastal"
-                                        fill
-                                        className="object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-125"
-                                    />
-                                </motion.div>
-                            </div>
-                            <p className="mt-6 text-sm tracking-widest text-white/40 uppercase">02 &mdash; Coastal Winds</p>
-                        </div>
+                        <TextReveal>
+                            CHASING THE HORIZON BEYOND THE KNOWN.
+                        </TextReveal>
+
                     </div>
                 </div>
             </div>
