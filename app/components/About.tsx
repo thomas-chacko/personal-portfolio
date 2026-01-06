@@ -64,6 +64,75 @@ const Char = ({ progress, range, children }: { progress: any, range: [number, nu
     );
 };
 
+const ParallaxManifesto = () => {
+    const sectionRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start end", "end start"]
+    });
+
+    const yFast = useTransform(scrollYProgress, [0, 1], [100, -200]);
+    const ySlow = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+    const yReverse = useTransform(scrollYProgress, [0, 1], [50, -100]);
+
+    return (
+        <div ref={sectionRef} className="py-24 lg:py-48 relative z-10 flex flex-col gap-32">
+
+            {/* Card 01 */}
+            <motion.div
+                style={{ y: yFast }}
+                className="relative self-start w-full max-w-lg group"
+            >
+                <div className="absolute -left-8 -top-12 text-[10rem] leading-none font-black text-white/[0.02] select-none -z-10 group-hover:text-white/[0.05] transition-colors">01</div>
+                <div className="border-l-4 border-red-500 pl-6 py-2 backdrop-blur-sm bg-black/20 rounded-r-xl">
+                    <h4 className="text-3xl font-bold text-white mb-2">The Analog Escape</h4>
+                    <div className="h-px w-12 bg-white/20 mb-4" />
+                    <p className="text-neutral-400 text-lg leading-relaxed">
+                        No pixels. No latency. Just the <span className="text-white font-medium">physics of movement</span>.
+                        In a world suffocated by notifications, the helmet is the only true noise-cancelling device.
+                    </p>
+                </div>
+            </motion.div>
+
+            {/* Card 02 */}
+            <motion.div
+                style={{ y: ySlow }}
+                className="relative self-end w-full max-w-lg text-right group"
+            >
+                <div className="absolute -right-8 -top-12 text-[10rem] leading-none font-black text-white/[0.02] select-none -z-10 group-hover:text-white/[0.05] transition-colors">02</div>
+                <div className="border-r-4 border-blue-500 pr-6 py-2 backdrop-blur-sm bg-black/20 rounded-l-xl flex flex-col items-end">
+                    <h4 className="text-3xl font-bold text-white mb-2">Mental Defrag</h4>
+                    <div className="h-px w-12 bg-white/20 mb-4" />
+                    <p className="text-neutral-400 text-lg leading-relaxed">
+                        Complex algorithms require clear memory. The rhythm of the road organizes the chaos,
+                        turning <span className="text-white font-medium">runtime errors</span> into clarity.
+                    </p>
+                </div>
+            </motion.div>
+
+            {/* Card 03 */}
+            <motion.div
+                style={{ y: yReverse }}
+                className="relative self-center w-full max-w-xl p-10 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 rounded-3xl backdrop-blur-md shadow-2xl"
+            >
+                <div className="absolute top-0 right-0 w-40 h-40 bg-purple-500/20 rounded-full blur-[80px] pointer-events-none" />
+                <h4 className="text-xl font-mono text-purple-300 mb-6 tracking-widest uppercase flex items-center gap-3">
+                    <span className="w-2 h-2 bg-purple-400 rounded-full animate-ping" />
+                    System Status
+                </h4>
+                <p className="text-2xl text-white font-light leading-normal">
+                    &quot;The machine needs fuel, but the mind needs <span className="font-bold text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-blue-400">freedom</span>.&quot;
+                </p>
+                <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-center text-sm text-neutral-500 font-mono">
+                    <span>/usr/bin/ride</span>
+                    <span className="text-green-400">Process_Complete</span>
+                </div>
+            </motion.div>
+
+        </div>
+    );
+};
+
 export const About = () => {
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -123,54 +192,7 @@ export const About = () => {
                             <p className="mt-6 text-sm tracking-widest text-white/40 uppercase text-right">01 &mdash; Mountain Passes</p>
                         </div>
 
-                        {/* Parallax Manifesto Section */}
-                        <div className="py-12 lg:py-32 relative z-10 flex flex-col gap-24">
-
-                            {/* Card 01 - Moves Faster */}
-                            <motion.div
-                                style={{ y: useTransform(scrollYProgress, [0, 1], [0, -100]) }}
-                                className="relative self-start w-full max-w-md"
-                            >
-                                <div className="absolute -left-4 -top-8 text-8xl font-black text-white/[0.02] select-none">01</div>
-                                <h4 className="text-2xl font-bold text-white mb-4 border-l-2 border-red-500 pl-4">Signal vs Noise</h4>
-                                <p className="text-neutral-400 leading-relaxed">
-                                    In an ecosystem of constant pings, slacks, and jira tickets, the helmet becomes a sanctuary.
-                                    There are no notifications here. Just the raw input of wind, engine frequency, and the road ahead.
-                                    It's a complete <span className="text-white">system interrupt</span> for the digital mind.
-                                </p>
-                            </motion.div>
-
-                            {/* Card 02 - Moves Slower (Stays longer) */}
-                            <motion.div
-                                style={{ y: useTransform(scrollYProgress, [0, 1], [0, 50]) }}
-                                className="relative self-end w-full max-w-md text-right"
-                            >
-                                <div className="absolute -right-4 -top-8 text-8xl font-black text-white/[0.02] select-none">02</div>
-                                <h4 className="text-2xl font-bold text-white mb-4 border-r-2 border-blue-500 pr-4">Debugging Reality</h4>
-                                <p className="text-neutral-400 leading-relaxed">
-                                    Code is deterministic; if (a) then (b). The road is dynamic. A patch of gravel, a sudden rainstorm, a stray dog...
-                                    it demands <span className="text-white">total presence</span>. You can't autopilot through a hairpin turn.
-                                    This forced focus clears the cognitive cache better than any sleep mode.
-                                </p>
-                            </motion.div>
-
-                            {/* Card 03 - Neural Shift */}
-                            <motion.div
-                                style={{ y: useTransform(scrollYProgress, [0, 1], [0, -50]) }}
-                                className="relative self-center w-full max-w-md p-8 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm"
-                            >
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
-                                <h4 className="text-xl font-mono text-purple-400 mb-4 tracking-widest uppercase">The Return Value</h4>
-                                <p className="text-lg text-white/80 font-light leading-relaxed">
-                                    "I don't ride to escape life, but to prevent life from escaping me."
-                                </p>
-                                <div className="mt-6 flex items-center gap-3 text-sm text-neutral-500 font-mono">
-                                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                                    <span>Battery_Recharged.init()</span>
-                                </div>
-                            </motion.div>
-
-                        </div>
+                        <ParallaxManifesto />
 
                         {/* Image 2 (Simulated with div as we only have one placeholder) */}
                         <TextReveal>
