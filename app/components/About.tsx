@@ -76,7 +76,7 @@ const ParallaxManifesto = () => {
     const yReverse = useTransform(scrollYProgress, [0, 1], [50, -100]);
 
     return (
-        <div ref={sectionRef} className="py-24 lg:py-48 relative z-10 flex flex-col gap-32">
+        <div ref={sectionRef} className="py-12 lg:py-48 relative z-10 flex flex-col gap-32">
 
             {/* Card 01 */}
             <motion.div
@@ -143,9 +143,9 @@ export const About = () => {
     const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
     return (
-        <section ref={container} className="relative py-16 lg:py-32 bg-neutral-950 text-white z-10 border-b border-white/5">
+        <section ref={container} className="relative py-12 lg:py-16 bg-neutral-950 text-white z-10 border-b border-white/5">
             <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-12">
-                <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
+                <div className="flex flex-col lg:flex-row lg:gap-24">
 
                     {/* Sticky Sidebar */}
                     <div className="lg:w-1/3">
