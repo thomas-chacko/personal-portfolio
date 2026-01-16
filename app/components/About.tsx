@@ -58,7 +58,7 @@ const TextReveal = ({ children }: { children: string }) => {
 const Char = ({ progress, range, children }: { progress: any, range: [number, number], children: string }) => {
     const opacity = useTransform(progress, range, [0.1, 1]);
     return (
-        <motion.span style={{ opacity }} className="relative text-white">
+        <motion.span style={{ opacity, willChange: "opacity" }} className="relative text-white">
             {children}
         </motion.span>
     );
@@ -80,7 +80,7 @@ const ParallaxManifesto = () => {
 
             {/* Card 01 */}
             <motion.div
-                style={{ y: yFast }}
+                style={{ y: yFast, willChange: "transform" }}
                 className="relative self-start w-full max-w-lg group"
             >
                 <div className="hidden lg:block absolute -left-8 -top-12 text-[10rem] leading-none font-black text-white/[0.02] select-none -z-10 group-hover:text-white/[0.05] transition-colors">01</div>
@@ -96,7 +96,7 @@ const ParallaxManifesto = () => {
 
             {/* Card 02 */}
             <motion.div
-                style={{ y: ySlow }}
+                style={{ y: ySlow, willChange: "transform" }}
                 className="relative self-end w-full max-w-lg text-right group"
             >
                 <div className="hidden lg:block absolute -right-8 -top-12 text-[10rem] leading-none font-black text-white/[0.02] select-none -z-10 group-hover:text-white/[0.05] transition-colors">02</div>
@@ -112,7 +112,7 @@ const ParallaxManifesto = () => {
 
             {/* Card 03 */}
             <motion.div
-                style={{ y: yReverse }}
+                style={{ y: yReverse, willChange: "transform" }}
                 className="relative self-center w-full max-w-xl p-10 bg-linear-to-br from-white/10 to-white/5 border border-white/10 rounded-3xl backdrop-blur-md shadow-2xl"
             >
                 <div className="absolute top-0 right-0 w-40 h-40 bg-purple-500/20 rounded-full blur-[80px] pointer-events-none" />
@@ -179,12 +179,13 @@ export const About = () => {
                         {/* Image 1 */}
                         <div className="relative group">
                             <div className="overflow-hidden rounded-sm">
-                                <motion.div style={{ y }} className="relative h-[60vh] w-full">
+                                <motion.div style={{ y, willChange: "transform" }} className="relative h-[60vh] w-full">
                                     <Image
                                         src="/assets/hero-background.jpg"
                                         alt="Riding"
                                         fill
                                         className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                        sizes="(max-width: 1024px) 100vw, 60vw"
                                     />
                                     <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-transparent transition-colors duration-500" />
                                 </motion.div>

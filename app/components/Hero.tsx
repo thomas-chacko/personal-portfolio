@@ -19,7 +19,7 @@ export const Hero = () => {
     return (
         <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-neutral-950">
             {/* Parallax Background Image */}
-            <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
+            <motion.div style={{ y, scale, willChange: "transform" }} className="absolute inset-0 z-0">
                 <Image
                     src="/assets/hero-background.jpg"
                     alt="Hero Background"
@@ -34,7 +34,7 @@ export const Hero = () => {
             {/* Content Container */}
             <div className="relative z-10 flex h-full flex-col justify-center px-4 sm:px-6 lg:px-16">
                 <motion.div
-                    style={{ opacity: opacity, y: textY }}
+                    style={{ opacity: opacity, y: textY, willChange: "transform, opacity" }}
                     className="flex flex-col gap-2 sm:gap-4"
                 >
                     <motion.div
