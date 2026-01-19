@@ -11,54 +11,84 @@ export const Hero = () => {
         offset: ["start start", "end start"],
     });
 
-    const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-    const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
-    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+    const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "80%"]);
+    const fadeOut = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
     return (
-        <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-neutral-950">
-            {/* Parallax Background Image */}
-            <motion.div style={{ y, scale, willChange: "transform" }} className="absolute inset-0 z-0">
+        <section
+            ref={containerRef}
+            className="relative h-dvh w-full overflow-hidden bg-neutral-950"
+        >
+            {/* Background Image with Parallax */}
+            <motion.div
+                style={{ y: backgroundY }}
+                className="absolute inset-0 z-0 h-[120%] w-full"
+            >
                 <Image
                     src="/assets/hero-background.jpg"
                     alt="Hero Background"
                     fill
                     priority
-                    className="object-cover opacity-60 object-[55%_20%] lg:object-[10%_20%]"
+                    className="object-cover object-[65%_center] sm:object-center opacity-70"
                     sizes="100vw"
                 />
-                <div className="absolute inset-0 bg-linear-to-b from-transparent via-neutral-950/20 to-neutral-950" />
+                {/* Modern Gradient Overlays */}
+                <div className="absolute inset-0 bg-linear-to-b from-neutral-950/30 via-neutral-950/10 to-neutral-950" />
+                <div className="absolute inset-0 bg-linear-to-r from-neutral-950/50 via-transparent to-transparent sm:from-neutral-950/30" />
             </motion.div>
 
             {/* Content Container */}
-            <div className="relative z-10 flex h-full flex-col justify-center px-4 sm:px-6 lg:px-16">
+            <div className="relative z-10 flex h-full flex-col justify-end pb-24 sm:justify-center sm:pb-0 px-6 sm:px-12 lg:px-24">
                 <motion.div
-                    style={{ opacity: opacity, y: textY, willChange: "transform, opacity" }}
-                    className="flex flex-col gap-2 sm:gap-4"
+                    style={{ y: textY, opacity: fadeOut }}
+                    className="max-w-360"
                 >
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="flex items-center gap-4"
+                    <div className="overflow-hidden">
+                        <motion.div
+                            initial={{ y: "100%" }}
+                            animate={{ y: 0 }}
+                            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                            className="flex items-center gap-3 mb-6"
+                        >
+                            <span className="inline-block h-px w-8 bg-white/60"></span>
+                            <h2 className="text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-white/80">
+                                Traveler • Explorer • Dev
+                            </h2>
+                        </motion.div>
+                    </div>
+
+                    <div className="overflow-hidden">
+                        <motion.h1
+                            initial={{ y: "100%" }}
+                            animate={{ y: 0 }}
+                            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+                            className="text-[13vw] sm:text-8xl lg:text-9xl font-bold tracking-tight text-white leading-[0.9] sm:leading-[0.9]"
+                        >
+                            BEYOND
+                        </motion.h1>
+                    </div>
+
+                    <div className="overflow-hidden">
+                        <motion.h1
+                            initial={{ y: "100%" }}
+                            animate={{ y: 0 }}
+                            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+                            className="text-[13vw] sm:text-8xl lg:text-9xl font-bold tracking-tight text-white/60 leading-[0.9] sm:leading-[0.9]"
+                        >
+                            HORIZONS
+                        </motion.h1>
+                    </div>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 0.8 }}
+                        className="mt-8 max-w-md md:max-w-xl text-base sm:text-lg text-neutral-300 font-light leading-relaxed"
                     >
-                        <div className="h-px w-12 bg-white/50" />
-                        <span className="text-sm font-medium tracking-[0.3em] text-white/80 uppercase">
-                            Traveler • Explorer • Storyteller
-                        </span>
-                    </motion.div>
-
-                    <h1 className="text-6xl sm:text-8xl lg:text-[10rem] leading-[0.85] font-black tracking-tighter text-white">
-                        BEYOND
-                        <br />
-                        <span className="text-transparent bg-clip-text bg-white/20 [-webkit-text-stroke:1.5px_rgba(255,255,255,0.9)] md:[-webkit-text-stroke:1px_rgba(255,255,255,0.8)]">HORIZONS</span>
-                    </h1>
-
-                    <p className="max-w-xl text-lg sm:text-xl text-white/60 mt-8 leading-relaxed font-light">
-                        Debugging code by day, chasing sunsets by weekend.
-                        From technical off-road trails to serene breakfast rides, the bike is my escape from the loop.
-                    </p>
+                        From debugging complex systems to navigating technical off-road trails.
+                        Merging the digital and physical worlds, one journey at a time.
+                    </motion.p>
                 </motion.div>
             </div>
 
@@ -66,18 +96,11 @@ export const Hero = () => {
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 1.6, duration: 1 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2"
+                transition={{ delay: 1.5, duration: 1 }}
+                className="absolute bottom-8 right-6 sm:right-12 z-20 hidden sm:flex items-center gap-4"
             >
-                <div className="flex flex-col items-center gap-2">
-                    <motion.div
-                        animate={{ y: [0, 8, 0] }}
-                        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                        className="h-10 w-6 rounded-full border-2 border-white/30 flex justify-center p-1"
-                    >
-                        <div className="w-1 h-2 bg-white rounded-full" />
-                    </motion.div>
-                </div>
+                <span className="text-xs font-medium tracking-widest text-white/50 uppercase">Scroll</span>
+                <div className="h-px w-12 bg-white/20"></div>
             </motion.div>
         </section>
     );
