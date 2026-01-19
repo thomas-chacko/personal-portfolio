@@ -1,11 +1,22 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
 export const Hero = () => {
     const containerRef = useRef<HTMLDivElement>(null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 640);
+        };
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end start"],
@@ -22,8 +33,8 @@ export const Hero = () => {
         >
             {/* Background Image with Parallax */}
             <motion.div
-                style={{ y: backgroundY }}
-                className="absolute inset-0 z-0 h-[120%] w-full"
+                style={{ y: isMobile ? 0 : backgroundY }}
+                className="absolute inset-0 z-0 h-[120%] w-full will-change-transform"
             >
                 <Image
                     src="/assets/hero-background.jpg"
@@ -41,7 +52,7 @@ export const Hero = () => {
             {/* Content Container */}
             <div className="relative z-10 flex h-full flex-col justify-end pb-24 sm:justify-center sm:pb-0 px-6 sm:px-12 lg:px-24">
                 <motion.div
-                    style={{ y: textY, opacity: fadeOut }}
+                    style={{ y: isMobile ? 0 : textY, opacity: fadeOut }}
                     className="max-w-360"
                 >
                     <div className="overflow-hidden">
