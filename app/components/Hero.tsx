@@ -50,7 +50,7 @@ export const Hero = () => {
             </motion.div>
 
             {/* Content Container */}
-            <div className="relative z-10 flex h-full flex-col justify-end pb-24 sm:justify-center sm:pb-0 px-6 sm:px-12 lg:px-24">
+            <div className="relative z-10 flex h-full flex-col justify-end pb-24 sm:justify-center sm:pb-0 px-6 sm:px-12">
                 <motion.div
                     style={{ y: isMobile ? 0 : textY, opacity: fadeOut }}
                     className="max-w-360"
