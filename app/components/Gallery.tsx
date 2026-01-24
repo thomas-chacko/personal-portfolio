@@ -20,12 +20,12 @@ export const Gallery = () => {
         offset: ['start end', 'end start']
     });
 
-    // Optimized physics for smoother, non-laggy feel
+    // Optimized physics for buttery smooth feel
     const smoothProgress = useSpring(scrollYProgress, {
-        stiffness: 50,
-        damping: 15,
+        stiffness: 20,
+        damping: 10,
         mass: 0.5,
-        restDelta: 0.0001
+        restDelta: 0.001
     });
 
     // Create opposite movements for the rows

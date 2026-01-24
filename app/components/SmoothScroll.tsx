@@ -11,13 +11,13 @@ export const SmoothScroll = () => {
         if (isMobile) return;
 
         const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            duration: 1.5, // Increased from 1.2 for more "weight"
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential ease-out
             orientation: "vertical",
             gestureOrientation: "vertical",
             smoothWheel: true,
-            wheelMultiplier: 1,
-            touchMultiplier: 1.5,
+            wheelMultiplier: 0.8, // Reduced multiplier for more control
+            touchMultiplier: 2, // Increased for better touch response if enabled
         });
 
         function raf(time: number) {
