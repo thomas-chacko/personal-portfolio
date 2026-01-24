@@ -5,6 +5,11 @@ import Lenis from "lenis";
 
 export const SmoothScroll = () => {
     useEffect(() => {
+        // Mobile check to ensure native scroll performance on devices
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+
+        if (isMobile) return;
+
         const lenis = new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

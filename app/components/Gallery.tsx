@@ -33,7 +33,7 @@ export const Gallery = () => {
     const xBackward = useTransform(smoothProgress, [0, 1], ["0%", "-50%"]);
 
     return (
-        <section ref={container} className="relative h-[300vh] bg-neutral-950 z-0">
+        <section ref={container} className="relative h-[150vh] sm:h-[300vh] bg-neutral-950 z-0">
             {/* Sticky Viewport */}
             <div className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden">
 
@@ -52,7 +52,7 @@ export const Gallery = () => {
                     {/* Row 1: Moves Left */}
                     <motion.div style={{ x: xBackward, willChange: "transform" }} className="flex gap-4 md:gap-8 w-max">
                         {[...images, ...images].map((src, i) => (
-                            <div key={`r1-${i}`} className="relative h-[120px] md:h-[240px] aspect-[16/9] rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-transform duration-500 hover:scale-105 border border-white/10">
+                            <div key={`r1-${i}`} className="relative h-[120px] md:h-[240px] aspect-video rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-transform duration-500 hover:scale-105 border border-white/10">
                                 <Image
                                     src={src}
                                     alt="gallery"
@@ -67,7 +67,7 @@ export const Gallery = () => {
                     {/* Row 2: Moves Right (Hero Row - Larger) */}
                     <motion.div style={{ x: xForward, willChange: "transform" }} className="flex gap-4 md:gap-8 w-max">
                         {[...images, ...images].map((src, i) => (
-                            <div key={`r2-${i}`} className="relative h-[180px] md:h-[350px] aspect-[16/9] rounded-xl overflow-hidden shadow-2xl z-20 hover:scale-105 transition-transform duration-500 border border-white/20">
+                            <div key={`r2-${i}`} className="relative h-[180px] md:h-[350px] aspect-video rounded-xl overflow-hidden shadow-2xl z-20 hover:scale-105 transition-transform duration-500 border border-white/20">
                                 <div className="absolute inset-0 bg-blue-500/10 mix-blend-overlay z-10" />
                                 <Image
                                     src={src}
@@ -83,7 +83,7 @@ export const Gallery = () => {
                     {/* Row 3: Moves Left */}
                     <motion.div style={{ x: xBackward, willChange: "transform" }} className="flex gap-4 md:gap-8 w-max">
                         {[...images, ...images].map((src, i) => (
-                            <div key={`r3-${i}`} className="relative h-[120px] md:h-[240px] aspect-[16/9] rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-transform duration-500 hover:scale-105 border border-white/10">
+                            <div key={`r3-${i}`} className="relative h-[120px] md:h-[240px] aspect-video rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-transform duration-500 hover:scale-105 border border-white/10">
                                 <Image
                                     src={src}
                                     alt="gallery"

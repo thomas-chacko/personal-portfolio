@@ -1,7 +1,7 @@
 "use client";
 
 import { useScroll, useTransform, motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 
 const stats = [
@@ -71,6 +71,15 @@ const ParallaxManifesto = () => {
         offset: ["start end", "end start"]
     });
 
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
     const yFast = useTransform(scrollYProgress, [0, 1], [100, -200]);
     const ySlow = useTransform(scrollYProgress, [0, 1], [-50, 50]);
     const yReverse = useTransform(scrollYProgress, [0, 1], [50, -100]);
@@ -80,10 +89,10 @@ const ParallaxManifesto = () => {
 
             {/* Card 01 */}
             <motion.div
-                style={{ y: yFast, willChange: "transform" }}
+                style={{ y: isMobile ? 0 : yFast, willChange: "transform" }}
                 className="relative self-start w-full max-w-lg group"
             >
-                <div className="hidden lg:block absolute -left-8 -top-12 text-[10rem] leading-none font-black text-white/[0.02] select-none -z-10 group-hover:text-white/[0.05] transition-colors">01</div>
+                <div className="hidden lg:block absolute -left-8 -top-12 text-[10rem] leading-none font-black text-white/2 select-none -z-10 group-hover:text-white/5 transition-colors">01</div>
                 <div className="border-l-4 border-red-500 pl-6 py-2 backdrop-blur-sm bg-black/20 rounded-r-xl">
                     <h4 className="text-3xl font-bold text-white mb-2">The Analog Escape</h4>
                     <div className="h-px w-12 bg-white/20 mb-4" />
@@ -96,10 +105,10 @@ const ParallaxManifesto = () => {
 
             {/* Card 02 */}
             <motion.div
-                style={{ y: ySlow, willChange: "transform" }}
+                style={{ y: isMobile ? 0 : ySlow, willChange: "transform" }}
                 className="relative self-end w-full max-w-lg text-right group"
             >
-                <div className="hidden lg:block absolute -right-8 -top-12 text-[10rem] leading-none font-black text-white/[0.02] select-none -z-10 group-hover:text-white/[0.05] transition-colors">02</div>
+                <div className="hidden lg:block absolute -right-8 -top-12 text-[10rem] leading-none font-black text-white/2 select-none -z-10 group-hover:text-white/5 transition-colors">02</div>
                 <div className="border-r-4 border-blue-500 pr-6 py-2 backdrop-blur-sm bg-black/20 rounded-l-xl flex flex-col items-end">
                     <h4 className="text-3xl font-bold text-white mb-2">Mental Defrag</h4>
                     <div className="h-px w-12 bg-white/20 mb-4" />
@@ -112,7 +121,7 @@ const ParallaxManifesto = () => {
 
             {/* Card 03 */}
             <motion.div
-                style={{ y: yReverse, willChange: "transform" }}
+                style={{ y: isMobile ? 0 : yReverse, willChange: "transform" }}
                 className="relative self-center w-full max-w-xl p-10 bg-linear-to-br from-white/10 to-white/5 border border-white/10 rounded-3xl backdrop-blur-md shadow-2xl"
             >
                 <div className="absolute top-0 right-0 w-40 h-40 bg-purple-500/20 rounded-full blur-[80px] pointer-events-none" />
@@ -140,6 +149,15 @@ export const About = () => {
         offset: ["start end", "end start"],
     });
 
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
     const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
     return (
@@ -149,7 +167,7 @@ export const About = () => {
 
                     {/* Sticky Sidebar */}
                     <div className="lg:w-1/3">
-                        <div className="sticky top-32">
+                        <div className="relative lg:sticky lg:top-32">
                             <h2 className="text-sm font-medium tracking-[0.4em] text-white/40 mb-8 uppercase">
                                 The Developer & Rider
                             </h2>
@@ -179,7 +197,7 @@ export const About = () => {
                         {/* Image 1 */}
                         <div className="relative group">
                             <div className="overflow-hidden rounded-sm">
-                                <motion.div style={{ y, willChange: "transform" }} className="relative h-[60vh] w-full">
+                                <motion.div style={{ y: isMobile ? 0 : y, willChange: "transform" }} className="relative h-[60vh] w-full">
                                     <Image
                                         src="/assets/hero-background.jpg"
                                         alt="Riding"
