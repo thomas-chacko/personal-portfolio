@@ -4,6 +4,33 @@ import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
+// Animated Text Component for character-by-character animation
+const AnimatedText = ({ text, className, delay = 0 }: { text: string; className?: string; delay?: number }) => {
+    return (
+        <h2 className={className}>
+            {text.split("").map((char, index) => (
+                <motion.span
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                        duration: 0.5,
+                        delay: delay + index * 0.05,
+                        ease: [0.16, 1, 0.3, 1]
+                    }}
+                    className="inline-block"
+                    style={{ 
+                        // Preserve spaces
+                        minWidth: char === " " ? "0.25em" : "auto"
+                    }}
+                >
+                    {char === " " ? "\u00A0" : char}
+                </motion.span>
+            ))}
+        </h2>
+    );
+};
+
 export const Hero = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [isMobile, setIsMobile] = useState(false);
@@ -62,10 +89,17 @@ export const Hero = () => {
                             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
                             className="flex items-center gap-3 mb-6"
                         >
-                            <span className="inline-block h-px w-8 bg-white/60"></span>
-                            <h2 className="text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-white/80">
-                                Traveler • Explorer • Dev
-                            </h2>
+                            <motion.span 
+                                initial={{ scaleX: 0 }}
+                                animate={{ scaleX: 1 }}
+                                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+                                className="inline-block h-px w-8 bg-white/60 origin-left"
+                            />
+                            <AnimatedText 
+                                text="Traveler • Explorer • Dev"
+                                className="text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-white/80"
+                                delay={0.8}
+                            />
                         </motion.div>
                     </div>
 
