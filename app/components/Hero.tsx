@@ -56,7 +56,7 @@ export const Hero = () => {
     return (
         <section
             ref={containerRef}
-            className="relative h-dvh w-full overflow-hidden bg-neutral-950"
+            className="relative h-dvh w-full overflow-hidden bg-neutral-950 sticky top-0"
         >
             {/* Background Image with Parallax */}
             <motion.div

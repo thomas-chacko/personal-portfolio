@@ -161,7 +161,7 @@ export const About = () => {
     const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
     return (
-        <section ref={container} className="relative py-12 lg:py-16 bg-neutral-950 text-white z-10 border-b border-white/5">
+        <section ref={container} className="relative py-12 lg:py-16 bg-neutral-950 text-white z-20 border-b border-white/5 rounded-t-3xl">
             <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-12">
                 <div className="flex flex-col lg:flex-row lg:gap-24">
 

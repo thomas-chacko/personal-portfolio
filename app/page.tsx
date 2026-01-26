@@ -10,12 +10,14 @@ export default function Home() {
   return (
     <main className="bg-neutral-950 min-h-screen text-white">
       <Hero />
-      <About />
-      {/* <Projects /> */}
-      <Gallery />
-      {/* <Garage /> */}
-      <Contact />
-      <Footer />
+      <div className="relative z-20">
+        <About />
+        {/* <Projects /> */}
+        <Gallery />
+        {/* <Garage /> */}
+        <Contact />
+        <Footer />
+      </div>
     </main>
   );
 }
