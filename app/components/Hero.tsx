@@ -64,7 +64,7 @@ export const Hero = () => {
                 className="absolute inset-0 z-0 h-[120%] w-full will-change-transform"
             >
                 <Image
-                    src="/assets/hero-background.jpg"
+                    src="/assets/dirt-bike-rider-participating-races-circuits-adventure-thrill-with-motorcycle.jpg"
                     alt="Hero Background"
                     fill
                     priority

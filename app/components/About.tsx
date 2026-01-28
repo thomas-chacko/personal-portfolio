@@ -199,7 +199,7 @@ export const About = () => {
                             <div className="overflow-hidden rounded-sm">
                                 <motion.div style={{ y: isMobile ? 0 : y, willChange: "transform" }} className="relative h-[60vh] w-full">
                                     <Image
-                                        src="/assets/IMG_20250906_082451.jpg"
+                                        src="/assets/motorcycle-safety-helmet.jpg"
                                         alt="Riding"
                                         fill
                                         className="object-cover transition-transform duration-700 group-hover:scale-105"
