@@ -19,7 +19,7 @@ const AnimatedText = ({ text, className, delay = 0 }: { text: string; className?
                         ease: [0.16, 1, 0.3, 1]
                     }}
                     className="inline-block"
-                    style={{ 
+                    style={{
                         // Preserve spaces
                         minWidth: char === " " ? "0.25em" : "auto"
                     }}
@@ -89,13 +89,13 @@ export const Hero = () => {
                             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
                             className="flex items-center gap-3 mb-6"
                         >
-                            <motion.span 
+                            <motion.span
                                 initial={{ scaleX: 0 }}
                                 animate={{ scaleX: 1 }}
                                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
                                 className="inline-block h-px w-8 bg-white/60 origin-left"
                             />
-                            <AnimatedText 
+                            <AnimatedText
                                 text="Traveler • Explorer • Dev"
                                 className="text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-white/80"
                                 delay={0.8}
