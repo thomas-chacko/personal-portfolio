@@ -124,7 +124,7 @@ const ParallaxManifesto = () => {
                 className="relative self-center w-full max-w-xl p-10 bg-linear-to-br from-white/10 to-white/5 border border-white/10 rounded-3xl backdrop-blur-md shadow-2xl"
             >
                 <div className="absolute top-0 right-0 w-40 h-40 bg-purple-500/20 rounded-full blur-[80px] pointer-events-none" />
-                <h4 className="font-cinzel text-xl font-mono text-purple-300 mb-6 tracking-widest uppercase flex items-center gap-3">
+                <h4 className="font-cinzel text-xl text-purple-300 mb-6 tracking-widest uppercase flex items-center gap-3">
                     <span className="w-2 h-2 bg-purple-400 rounded-full animate-ping" />
                     System Status
                 </h4>
