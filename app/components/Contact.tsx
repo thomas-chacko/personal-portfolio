@@ -20,7 +20,7 @@ export const Contact = () => {
     const y = useTransform(smoothProgress, [0, 1], [-25, 25]);
 
     return (
-        <section ref={container} className="relative min-h-[80vh] flex flex-col items-center justify-center bg-neutral-950 overflow-hidden py-24">
+        <section ref={container} className="relative  flex flex-col items-center justify-center bg-neutral-950 overflow-hidden py-24">
 
             {/* Background Texture */}
             <div className="absolute inset-0 z-0 opacity-20">

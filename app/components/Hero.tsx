@@ -83,7 +83,7 @@ export const Hero = () => {
                             />
                             <AnimatedText
                                 text="Traveler • Explorer • Dev"
-                                className="text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-white/80"
+                                className="font-cinzel text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-white/80"
                                 delay={0.8}
                             />
                         </motion.div>
@@ -94,7 +94,7 @@ export const Hero = () => {
                             initial={{ y: "100%" }}
                             animate={{ y: 0 }}
                             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-                            className="text-[13vw] sm:text-8xl lg:text-9xl font-bold tracking-tight text-white leading-[0.9] sm:leading-[0.9]"
+                            className="font-cinzel text-[13vw] sm:text-8xl lg:text-9xl font-bold tracking-wide text-white/90 leading-[0.9] sm:leading-[0.9]"
                         >
                             BEYOND
                         </motion.h1>
@@ -105,7 +105,7 @@ export const Hero = () => {
                             initial={{ y: "100%" }}
                             animate={{ y: 0 }}
                             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-                            className="text-[13vw] sm:text-8xl lg:text-9xl font-bold tracking-tight text-white/60 leading-[0.9] sm:leading-[0.9]"
+                            className="font-cinzel text-[13vw] sm:text-8xl lg:text-9xl font-bold tracking-tight text-white/60 leading-[0.9] sm:leading-[0.9]"
                         >
                             HORIZONS
                         </motion.h1>
@@ -115,7 +115,7 @@ export const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.8 }}
-                        className="mt-8 max-w-md md:max-w-xl text-base sm:text-lg text-neutral-300 font-light leading-relaxed"
+                        className="font-josefin-sans mt-8 max-w-md md:max-w-xl text-base sm:text-lg text-neutral-300 font-light leading-relaxed"
                     >
                         From debugging complex systems to navigating technical off-road trails.
                         Merging the digital and physical worlds, one journey at a time.
@@ -130,8 +130,8 @@ export const Hero = () => {
                 transition={{ delay: 1.5, duration: 1 }}
                 className="absolute bottom-8 right-6 sm:right-12 z-20 hidden sm:flex items-center gap-4"
             >
-                <span className="text-xs font-medium tracking-widest text-white/50 uppercase">Scroll</span>
-                <div className="h-px w-12 bg-white/20"></div>
+                <span className="font-cinzel text-sm font-medium tracking-widest text-white/50 uppercase animate-pulse">Scroll</span>
+                <div className="h-px w-12 bg-white/50"></div>
             </motion.div>
         </section>
     );

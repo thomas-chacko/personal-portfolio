@@ -93,9 +93,9 @@ const ParallaxManifesto = () => {
             >
                 <div className="hidden lg:block absolute -left-8 -top-12 text-[10rem] leading-none font-black text-white/2 select-none -z-10 group-hover:text-white/5 transition-colors">01</div>
                 <div className="border-l-4 border-red-500 pl-6 py-2 backdrop-blur-sm bg-black/20 rounded-r-xl">
-                    <h4 className="text-3xl font-bold text-white mb-2">The Analog Escape</h4>
-                    <div className="h-px w-12 bg-white/20 mb-4" />
-                    <p className="text-neutral-400 text-lg leading-relaxed">
+                    <h4 className="font-cinzel text-3xl font-bold text-white mb-2">The Analog Escape</h4>
+                    <div className="h-px w-12 bg-white/50 mb-4" />
+                    <p className="font-josefin-sans text-neutral-400 text-lg leading-relaxed">
                         No pixels. No latency. Just the <span className="text-white font-medium">physics of movement</span>.
                         In a world suffocated by notifications, the helmet is the only true noise-cancelling device.
                     </p>
@@ -109,9 +109,9 @@ const ParallaxManifesto = () => {
             >
                 <div className="hidden lg:block absolute -right-8 -top-12 text-[10rem] leading-none font-black text-white/2 select-none -z-10 group-hover:text-white/5 transition-colors">02</div>
                 <div className="border-r-4 border-blue-500 pr-6 py-2 backdrop-blur-sm bg-black/20 rounded-l-xl flex flex-col items-end">
-                    <h4 className="text-3xl font-bold text-white mb-2">Mental Defrag</h4>
-                    <div className="h-px w-12 bg-white/20 mb-4" />
-                    <p className="text-neutral-400 text-lg leading-relaxed">
+                    <h4 className="font-cinzel text-3xl font-bold text-white mb-2">Mental Defrag</h4>
+                    <div className="h-px w-12 bg-white/50 mb-4" />
+                    <p className="font-josefin-sans text-neutral-400 text-lg leading-relaxed">
                         Complex algorithms require clear memory. The rhythm of the road organizes the chaos,
                         turning <span className="text-white font-medium">runtime errors</span> into clarity.
                     </p>
@@ -124,11 +124,11 @@ const ParallaxManifesto = () => {
                 className="relative self-center w-full max-w-xl p-10 bg-linear-to-br from-white/10 to-white/5 border border-white/10 rounded-3xl backdrop-blur-md shadow-2xl"
             >
                 <div className="absolute top-0 right-0 w-40 h-40 bg-purple-500/20 rounded-full blur-[80px] pointer-events-none" />
-                <h4 className="text-xl font-mono text-purple-300 mb-6 tracking-widest uppercase flex items-center gap-3">
+                <h4 className="font-cinzel text-xl font-mono text-purple-300 mb-6 tracking-widest uppercase flex items-center gap-3">
                     <span className="w-2 h-2 bg-purple-400 rounded-full animate-ping" />
                     System Status
                 </h4>
-                <p className="text-2xl text-white font-light leading-normal">
+                <p className="font-cinzel text-2xl text-white font-light leading-normal">
                     &quot;The machine needs fuel, but the mind needs <span className="font-bold text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-blue-400">freedom</span>.&quot;
                 </p>
                 <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-center text-sm text-neutral-500 font-mono">
@@ -168,14 +168,14 @@ export const About = () => {
                     {/* Sticky Sidebar */}
                     <div className="lg:w-1/3">
                         <div className="relative lg:sticky lg:top-32">
-                            <h2 className="text-sm font-medium tracking-[0.4em] text-white/40 mb-8 uppercase">
+                            <h2 className="font-cinzel text-sm font-medium tracking-[0.4em] text-white/40 mb-8 uppercase">
                                 The Developer & Rider
                             </h2>
-                            <h3 className="text-5xl sm:text-7xl font-bold leading-none mb-8">
+                            <h3 className="font-cinzel text-5xl sm:text-7xl font-bold leading-none mb-8">
                                 CODE & <br />
                                 <span className="text-neutral-500">THROTTLE</span>
                             </h3>
-                            <p className="text-lg text-white/60 leading-relaxed max-w-sm">
+                            <p className="font-josefin-sans text-lg text-white/60 leading-relaxed max-w-sm">
                                 I write logic for a living, but ride to feel alive. Whether it's a quick breakfast spin or a technical off-road trail, the bike is my reset button.
                             </p>
 
@@ -184,8 +184,8 @@ export const About = () => {
                             <div className="grid grid-cols-2 gap-8 pt-8">
                                 {stats.map((stat) => (
                                     <div key={stat.label}>
-                                        <div className="text-3xl font-bold mb-1">{stat.value}</div>
-                                        <div className="text-xs tracking-widest text-white/40 uppercase">{stat.label}</div>
+                                        <div className="font-cinzel text-3xl font-bold mb-1">{stat.value}</div>
+                                        <div className="font-cinzel text-xs tracking-widest text-white/40 uppercase">{stat.label}</div>
                                     </div>
                                 ))}
                             </div>
@@ -193,7 +193,7 @@ export const About = () => {
                     </div>
 
                     {/* Scrolling Content */}
-                    <div className="lg:w-2/3 flex flex-col gap-16 lg:gap-32 pt-12 lg:pt-0">
+                    <div className="lg:w-2/3 flex flex-col gap-16 lg:gap-32 pt-12 lg:pt-0 font-cinzel">
                         {/* Image 1 */}
                         <div className="relative group">
                             <div className="overflow-hidden rounded-sm">
@@ -208,7 +208,7 @@ export const About = () => {
                                     <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-transparent transition-colors duration-500" />
                                 </motion.div>
                             </div>
-                            <p className="mt-6 text-sm tracking-widest text-white/40 uppercase text-right">01 &mdash; Mountain Passes</p>
+                            <p className="font-cinzel mt-6 text-sm tracking-widest text-white/40 uppercase text-right">01 &mdash; Mountain Passes</p>
                         </div>
 
                         <ParallaxManifesto />

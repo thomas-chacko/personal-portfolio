@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@theme {
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+    --font-oswald: var(--font-oswald);
+    --font-josefin-sans: var(--font-josefin-sans);
+    --font-cinzel: var(--font-cinzel);
+}
+
 @layer base {
     html {
         scroll-behavior: smooth;
@@ -7,7 +15,7 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-    
+
     body {
         @apply bg-neutral-950 text-white antialiased selection:bg-white/20 selection:text-white;
         overflow-x: hidden;
@@ -27,10 +35,22 @@
 }
 
 @layer utilities {
+    .font-oswald {
+        font-family: var(--font-oswald), sans-serif;
+    }
+
+    .font-josefin-sans {
+        font-family: var(--font-josefin-sans), sans-serif;
+    }
+
+    .font-cinzel {
+        font-family: var(--font-cinzel), sans-serif;
+    }
+
     .text-balance {
         text-wrap: balance;
     }
-    
+
     .text-outline {
         -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
         color: transparent;
@@ -40,7 +60,7 @@
         mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
     }
 
-     /* High performance grain overlay */
+    /* High performance grain overlay */
     .bg-noise {
         position: fixed;
         top: 0;
