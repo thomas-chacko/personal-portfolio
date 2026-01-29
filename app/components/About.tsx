@@ -22,11 +22,11 @@ const TextReveal = ({ children }: { children: string }) => {
 
     return (
         <div ref={target} className="flex flex-wrap items-center py-2 lg:py-24 lg:min-h-[50vh] relative">
-            <h3 className="text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter leading-[0.85] flex flex-wrap gap-x-3 md:gap-x-8 gap-y-0 z-10 w-full">
+            <h3 className="text-7xl md:text-7xl lg:text-9xl font-black tracking-tighter leading-[0.85] flex flex-wrap gap-x-3 md:gap-x-8 gap-y-0 z-10 w-full">
                 {words.map((word, wordIndex) => {
                     const letters = word.split("");
                     return (
-                        <span key={wordIndex} className="flex leading-20  lg:leading-40">
+                        <span key={wordIndex} className="flex leading-28  lg:leading-40">
                             {letters.map((letter, letterIndex) => {
                                 // Calculate a unique range for each letter across the whole text
                                 const step = 1 / (children.length);
