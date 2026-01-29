@@ -44,7 +44,7 @@ const Card = ({ i, project, progress, range, targetScale }: { i: number, project
     return (
         <div ref={container} className="h-screen flex items-center justify-center sticky top-0 px-4 sm:px-0">
             <motion.div
-                style={{ scale, top: `calc(-5vh + ${i * 25}px)` }}
+                style={{ scale, top: `calc(-5vh + ${i * 25}px)`, willChange: "transform" }}
                 className="flex flex-col md:flex-row relative -top-[15%] md:-top-[25%] h-[550px] md:h-[450px] w-full max-w-5xl rounded-3xl p-6 md:p-10 origin-top border border-white/10 overflow-hidden bg-neutral-900 shadow-2xl"
             >
                 {/* Background Gradient */}
@@ -74,7 +74,7 @@ const Card = ({ i, project, progress, range, targetScale }: { i: number, project
 
                     {/* Image / Visual */}
                     <div className="w-full md:w-1/2 relative h-full min-h-[200px] rounded-2xl overflow-hidden bg-black/40 border border-white/5">
-                        <motion.div style={{ scale: imageScale }} className="w-full h-full relative">
+                        <motion.div style={{ scale: imageScale, willChange: "transform" }} className="w-full h-full relative">
                             <Image
                                 fill
                                 src="/assets/hero-background.jpg"

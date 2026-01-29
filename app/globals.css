@@ -3,11 +3,26 @@
 @layer base {
     html {
         scroll-behavior: smooth;
+        /* Enable GPU acceleration for smoother scrolling */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
     
     body {
         @apply bg-neutral-950 text-white antialiased selection:bg-white/20 selection:text-white;
         overflow-x: hidden;
+        /* Optimize rendering performance */
+        -webkit-overflow-scrolling: touch;
+        /* Enable GPU acceleration */
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+    }
+
+    /* Optimize all sections for better scroll performance */
+    section {
+        /* CSS containment for better performance */
+        contain: layout style paint;
     }
 }
 

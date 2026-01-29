@@ -22,9 +22,8 @@ export const Gallery = () => {
 
     // Optimized physics for buttery smooth feel
     const smoothProgress = useSpring(scrollYProgress, {
-        stiffness: 20,
-        damping: 10,
-        mass: 0.5,
+        stiffness: 100,
+        damping: 30,
         restDelta: 0.001
     });
 

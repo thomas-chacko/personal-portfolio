@@ -1,7 +1,7 @@
 "use client";
 
-import { useScroll, useTransform, motion } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useScroll, useTransform, motion, useSpring } from "framer-motion";
+import { useRef } from "react";
 import Image from "next/image";
 
 const stats = [
@@ -71,25 +71,24 @@ const ParallaxManifesto = () => {
         offset: ["start end", "end start"]
     });
 
-    const [isMobile, setIsMobile] = useState(false);
+    // Smooth spring physics for buttery scroll
+    const smoothProgress = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
 
-    useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 1024);
-        checkMobile();
-        window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
-    }, []);
-
-    const yFast = useTransform(scrollYProgress, [0, 1], [100, -200]);
-    const ySlow = useTransform(scrollYProgress, [0, 1], [-50, 50]);
-    const yReverse = useTransform(scrollYProgress, [0, 1], [50, -100]);
+    // Reduced movement on mobile for better performance, but still animated
+    const yFast = useTransform(smoothProgress, [0, 1], [50, -100]);
+    const ySlow = useTransform(smoothProgress, [0, 1], [-25, 25]);
+    const yReverse = useTransform(smoothProgress, [0, 1], [25, -50]);
 
     return (
         <div ref={sectionRef} className="py-12 lg:py-48 relative z-10 flex flex-col gap-32">
 
             {/* Card 01 */}
             <motion.div
-                style={{ y: isMobile ? 0 : yFast, willChange: "transform" }}
+                style={{ y: yFast, willChange: "transform" }}
                 className="relative self-start w-full max-w-lg group"
             >
                 <div className="hidden lg:block absolute -left-8 -top-12 text-[10rem] leading-none font-black text-white/2 select-none -z-10 group-hover:text-white/5 transition-colors">01</div>
@@ -105,7 +104,7 @@ const ParallaxManifesto = () => {
 
             {/* Card 02 */}
             <motion.div
-                style={{ y: isMobile ? 0 : ySlow, willChange: "transform" }}
+                style={{ y: ySlow, willChange: "transform" }}
                 className="relative self-end w-full max-w-lg text-right group"
             >
                 <div className="hidden lg:block absolute -right-8 -top-12 text-[10rem] leading-none font-black text-white/2 select-none -z-10 group-hover:text-white/5 transition-colors">02</div>
@@ -121,7 +120,7 @@ const ParallaxManifesto = () => {
 
             {/* Card 03 */}
             <motion.div
-                style={{ y: isMobile ? 0 : yReverse, willChange: "transform" }}
+                style={{ y: yReverse, willChange: "transform" }}
                 className="relative self-center w-full max-w-xl p-10 bg-linear-to-br from-white/10 to-white/5 border border-white/10 rounded-3xl backdrop-blur-md shadow-2xl"
             >
                 <div className="absolute top-0 right-0 w-40 h-40 bg-purple-500/20 rounded-full blur-[80px] pointer-events-none" />
@@ -149,16 +148,14 @@ export const About = () => {
         offset: ["start end", "end start"],
     });
 
-    const [isMobile, setIsMobile] = useState(false);
+    // Smooth spring physics for buttery scroll
+    const smoothProgress = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
 
-    useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 1024);
-        checkMobile();
-        window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
-    }, []);
-
-    const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+    const y = useTransform(smoothProgress, [0, 1], [50, -50]);
 
     return (
         <section ref={container} className="relative py-12 lg:py-16 bg-neutral-950 text-white z-10 border-b border-white/5">
@@ -197,7 +194,7 @@ export const About = () => {
                         {/* Image 1 */}
                         <div className="relative group">
                             <div className="overflow-hidden rounded-sm">
-                                <motion.div style={{ y: isMobile ? 0 : y, willChange: "transform" }} className="relative h-[60vh] w-full">
+                                <motion.div style={{ y, willChange: "transform" }} className="relative h-[60vh] w-full">
                                     <Image
                                         src="/assets/motorcycle-safety-helmet.jpg"
                                         alt="Riding"

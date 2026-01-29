@@ -1,7 +1,7 @@
 "use client";
 
 import { useScroll, useTransform, motion, useSpring } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 
 const techStack = [
@@ -24,22 +24,22 @@ const motoGear = [
 
 export const Garage = () => {
     const container = useRef(null);
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 1024);
-        checkMobile();
-        window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
-    }, []);
 
     const { scrollYProgress } = useScroll({
         target: container,
         offset: ["start end", "end start"],
     });
 
-    const yDev = useTransform(scrollYProgress, [0, 1], [100, -100]);
-    const yMoto = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+    // Smooth spring physics for buttery scroll
+    const smoothProgress = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
+
+    // Reduced parallax movement for better mobile performance
+    const yDev = useTransform(smoothProgress, [0, 1], [50, -50]);
+    const yMoto = useTransform(smoothProgress, [0, 1], [-25, 25]);
 
     return (
         <section ref={container} className="relative bg-neutral-900 border-t border-white/5 overflow-hidden">
@@ -56,7 +56,7 @@ export const Garage = () => {
                     <div className="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                     <motion.div
-                        style={{ y: isMobile ? 0 : yDev }}
+                        style={{ y: yDev, willChange: "transform" }}
                         className="relative z-10"
                     >
                         <h3 className="hidden lg:block text-xs font-bold tracking-[0.3em] text-blue-400 uppercase mb-12">
@@ -85,7 +85,7 @@ export const Garage = () => {
 
                     <div className="h-[50vh] lg:h-1/2 relative overflow-hidden border-b border-white/5">
                         <motion.div
-                            style={{ scale: isMobile ? 1 : 1.1 }}
+                            style={{ scale: 1.1, willChange: "transform" }}
                             className="absolute inset-0"
                         >
                             <Image
@@ -103,7 +103,7 @@ export const Garage = () => {
                         <div className="absolute inset-0 bg-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                         <motion.div
-                            style={{ y: isMobile ? 0 : yMoto }}
+                            style={{ y: yMoto, willChange: "transform" }}
                             className="space-y-6 relative z-10"
                         >
                             {motoGear.map((item, i) => (

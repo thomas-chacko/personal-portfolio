@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
 
 // Animated Text Component for character-by-character animation
@@ -33,25 +33,23 @@ const AnimatedText = ({ text, className, delay = 0 }: { text: string; className?
 
 export const Hero = () => {
     const containerRef = useRef<HTMLDivElement>(null);
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth < 640);
-        };
-        checkMobile();
-        window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
-    }, []);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end start"],
     });
 
-    const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "80%"]);
-    const fadeOut = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+    // Smooth spring physics for buttery scroll
+    const smoothProgress = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
+
+    // Reduced parallax movement for better mobile performance
+    const backgroundY = useTransform(smoothProgress, [0, 1], ["0%", "15%"]);
+    const textY = useTransform(smoothProgress, [0, 1], ["0%", "50%"]);
+    const fadeOut = useTransform(smoothProgress, [0, 0.6], [1, 0]);
 
     return (
         <section
@@ -60,8 +58,8 @@ export const Hero = () => {
         >
             {/* Background Image with Parallax */}
             <motion.div
-                style={{ y: isMobile ? 0 : backgroundY }}
-                className="absolute inset-0 z-0 h-[120%] w-full will-change-transform"
+                style={{ y: backgroundY, willChange: "transform" }}
+                className="absolute inset-0 z-0 h-[120%] w-full"
             >
                 <Image
                     src="/assets/dirt-bike-rider-participating-races-circuits-adventure-thrill-with-motorcycle.jpg"
@@ -79,7 +77,7 @@ export const Hero = () => {
             {/* Content Container */}
             <div className="relative z-10 flex h-full flex-col justify-end pb-24 sm:justify-center sm:pb-0 px-6 sm:px-12">
                 <motion.div
-                    style={{ y: isMobile ? 0 : textY, opacity: fadeOut }}
+                    style={{ y: textY, opacity: fadeOut, willChange: "transform, opacity" }}
                     className="max-w-360"
                 >
                     <div className="overflow-hidden">

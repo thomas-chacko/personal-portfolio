@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 
 export const Contact = () => {
@@ -10,7 +10,14 @@ export const Contact = () => {
         offset: ["start end", "end end"]
     });
 
-    const y = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+    // Smooth spring physics for buttery scroll
+    const smoothProgress = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
+
+    const y = useTransform(smoothProgress, [0, 1], [-25, 25]);
 
     return (
         <section ref={container} className="relative min-h-[80vh] flex flex-col items-center justify-center bg-neutral-950 overflow-hidden py-24">
@@ -22,7 +29,7 @@ export const Contact = () => {
             </div>
 
             <div className="relative z-10 text-center px-6">
-                <motion.div style={{ y }} className="mb-8">
+                <motion.div style={{ y, willChange: "transform" }} className="mb-8">
                     <span className="inline-block px-3 py-1 rounded-full border border-green-500/30 text-green-500 text-xs font-mono tracking-widest uppercase bg-green-500/5 backdrop-blur-md">
                         ● System Online
                     </span>
