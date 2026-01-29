@@ -158,7 +158,10 @@ export const About = () => {
     const y = useTransform(smoothProgress, [0, 1], [50, -50]);
 
     return (
-        <section ref={container} className="relative py-12 lg:py-16 bg-neutral-950 text-white z-10 border-b border-white/5">
+        <motion.section
+            ref={container}
+            className="relative py-12 lg:py-16 bg-neutral-950 text-white z-20 border-b border-white/5"
+        >
             <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-12">
                 <div className="flex flex-col lg:flex-row lg:gap-24">
 
@@ -218,6 +221,6 @@ export const About = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 };

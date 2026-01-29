@@ -44,42 +44,13 @@ export const Hero = () => {
         return () => window.removeEventListener("resize", checkMobile);
     }, []);
 
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start start", "end start"],
-    });
-
-    // Smooth spring physics - more damping on mobile for smoother feel
-    const smoothProgress = useSpring(scrollYProgress, {
-        stiffness: isMobile ? 50 : 100,
-        damping: isMobile ? 40 : 30,
-        restDelta: 0.001
-    });
-
-    // Responsive parallax - minimal movement on mobile to prevent stuck feeling
-    const backgroundY = useTransform(
-        smoothProgress,
-        [0, 1],
-        isMobile ? ["0%", "5%"] : ["0%", "15%"]
-    );
-    const textY = useTransform(
-        smoothProgress,
-        [0, 1],
-        isMobile ? ["0%", "30%"] : ["0%", "50%"]
-    );
-    const fadeOut = useTransform(smoothProgress, [0, 0.6], [1, 0]);
-
     return (
         <section
             ref={containerRef}
-            className="relative h-dvh w-full overflow-hidden bg-neutral-950"
-            style={{ touchAction: "pan-y" }}
+            className="sticky top-0 z-0 h-dvh w-full overflow-hidden bg-neutral-950"
         >
-            {/* Background Image with Parallax */}
-            <motion.div
-                style={{ y: backgroundY, willChange: "transform" }}
-                className="absolute inset-0 z-0 h-[120%] w-full"
-            >
+            {/* Background Image - Static, no animations */}
+            <div className="absolute inset-0 z-0 w-full h-full">
                 <Image
                     src="/assets/dirt-bike-rider-participating-races-circuits-adventure-thrill-with-motorcycle.jpg"
                     alt="Hero Background"
@@ -92,14 +63,11 @@ export const Hero = () => {
                 {/* Modern Gradient Overlays */}
                 <div className="absolute inset-0 bg-linear-to-b from-neutral-950/30 via-neutral-950/10 to-neutral-950" />
                 <div className="absolute inset-0 bg-linear-to-r from-neutral-950/50 via-transparent to-transparent sm:from-neutral-950/30" />
-            </motion.div>
+            </div>
 
             {/* Content Container */}
             <div className="relative z-10 flex h-full flex-col justify-end pb-24 sm:justify-center sm:pb-0 px-6 sm:px-12">
-                <motion.div
-                    style={{ y: textY, opacity: fadeOut, willChange: "transform, opacity" }}
-                    className="max-w-360"
-                >
+                <div className="max-w-360">
                     <div className="overflow-hidden">
                         <motion.div
                             initial={{ y: "100%" }}
@@ -152,7 +120,7 @@ export const Hero = () => {
                         From debugging complex systems to navigating technical off-road trails.
                         Merging the digital and physical worlds, one journey at a time.
                     </motion.p>
-                </motion.div>
+                </div>
             </div>
 
             {/* Scroll Indicator */}

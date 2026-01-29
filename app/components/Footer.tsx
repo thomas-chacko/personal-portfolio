@@ -2,7 +2,7 @@ export const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-neutral-950 border-t border-white/5 py-8 md:py-12">
+        <footer className="relative z-10 bg-neutral-950 border-t border-white/5 py-8 md:py-12">
             <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
 
                 <div className="text-center md:text-left">
