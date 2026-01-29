@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
 
@@ -33,28 +33,47 @@ const AnimatedText = ({ text, className, delay = 0 }: { text: string; className?
 
 export const Hero = () => {
     const containerRef = useRef<HTMLDivElement>(null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end start"],
     });
 
-    // Smooth spring physics for buttery scroll
+    // Smooth spring physics - more damping on mobile for smoother feel
     const smoothProgress = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
+        stiffness: isMobile ? 50 : 100,
+        damping: isMobile ? 40 : 30,
         restDelta: 0.001
     });
 
-    // Reduced parallax movement for better mobile performance
-    const backgroundY = useTransform(smoothProgress, [0, 1], ["0%", "15%"]);
-    const textY = useTransform(smoothProgress, [0, 1], ["0%", "50%"]);
+    // Responsive parallax - minimal movement on mobile to prevent stuck feeling
+    const backgroundY = useTransform(
+        smoothProgress,
+        [0, 1],
+        isMobile ? ["0%", "5%"] : ["0%", "15%"]
+    );
+    const textY = useTransform(
+        smoothProgress,
+        [0, 1],
+        isMobile ? ["0%", "30%"] : ["0%", "50%"]
+    );
     const fadeOut = useTransform(smoothProgress, [0, 0.6], [1, 0]);
 
     return (
         <section
             ref={containerRef}
             className="relative h-dvh w-full overflow-hidden bg-neutral-950"
+            style={{ touchAction: "pan-y" }}
         >
             {/* Background Image with Parallax */}
             <motion.div
@@ -68,6 +87,7 @@ export const Hero = () => {
                     priority
                     className="object-cover object-[65%_center] sm:object-center opacity-70"
                     sizes="100vw"
+                    quality={90}
                 />
                 {/* Modern Gradient Overlays */}
                 <div className="absolute inset-0 bg-linear-to-b from-neutral-950/30 via-neutral-950/10 to-neutral-950" />
