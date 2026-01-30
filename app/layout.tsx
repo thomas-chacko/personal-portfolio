@@ -1,24 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Oswald, Josefin_Sans, Cinzel } from "next/font/google";
+import { Josefin_Sans, Cinzel } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "./components/SmoothScroll";
 import { Analytics } from "@vercel/analytics/next"
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const oswald = Oswald({
-  variable: "--font-oswald",
-  subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://iamthomas.vercel.app'),
@@ -171,12 +156,13 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} ${josefinSans.variable} ${cinzel.variable} antialiased`}
+        className={`${josefinSans.variable} ${cinzel.variable} antialiased`}
       >
         <SmoothScroll />
         <div className="bg-noise" />
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

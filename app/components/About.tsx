@@ -131,7 +131,7 @@ const ParallaxManifesto = () => {
                 <p className="font-cinzel text-2xl text-white font-light leading-normal">
                     &quot;The machine needs fuel, but the mind needs <span className="font-bold text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-blue-400">freedom</span>.&quot;
                 </p>
-                <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-center text-sm text-neutral-500 font-mono">
+                <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-center text-sm text-neutral-500 font-josefin-sans">
                     <span>/usr/bin/ride</span>
                     <span className="text-green-400">Process_Complete</span>
                 </div>
