@@ -3,6 +3,7 @@ import { Josefin_Sans, Cinzel } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "./components/SmoothScroll";
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://iamthomas.vercel.app'),
@@ -161,6 +162,7 @@ export default function RootLayout({
         <div className="bg-noise" />
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
