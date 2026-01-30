@@ -125,7 +125,7 @@ const GalleryCard = ({ image, index }: { image: GalleryImage; index: number }) =
             </motion.div>
 
             {/* Index Number */}
-            <div className="absolute top-4 right-4 font-mono text-xs text-white/30 group-hover:text-white/60 transition-colors">
+            <div className="absolute top-4 right-4 font-josefin-sans text-xs text-white/30 group-hover:text-white/60 transition-colors">
                 {String(index + 1).padStart(2, '0')}
             </div>
         </motion.div>
@@ -204,7 +204,7 @@ export const Gallery = () => {
                 >
                     <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
                         <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                        <span className="font-mono text-xs text-neutral-400 tracking-wider">
+                        <span className="font-josefin-sans text-xs text-neutral-400 tracking-wider">
                             More adventures loading...
                         </span>
                     </div>

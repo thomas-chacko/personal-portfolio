@@ -14,7 +14,7 @@ export const Footer = () => {
 
                 <div className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-xs font-mono text-neutral-400 uppercase tracking-widest">
+                    <span className="text-xs font-josefin-sans text-neutral-400 uppercase tracking-widest">
                         All Systems Normal
                     </span>
                 </div>

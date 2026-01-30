@@ -30,7 +30,7 @@ export const Contact = () => {
 
             <div className="relative z-10 text-center px-6">
                 <motion.div style={{ y, willChange: "transform" }} className="mb-8">
-                    <span className="inline-block px-3 py-1 rounded-full border border-green-500/30 text-green-500 text-xs font-mono tracking-widest uppercase bg-green-500/5 backdrop-blur-md">
+                    <span className="inline-block px-3 py-1 rounded-full border border-green-500/30 text-green-500 text-xs font-josefin-sans tracking-widest uppercase bg-green-500/5 backdrop-blur-md">
                         ● System Online
                     </span>
                 </motion.div>
@@ -55,10 +55,10 @@ export const Contact = () => {
             </div>
 
             {/* Decoration */}
-            <div className="absolute bottom-12 left-12 hidden md:block text-xs font-mono text-neutral-700">
+            <div className="absolute bottom-12 left-12 hidden md:block text-xs font-josefin-sans text-neutral-700">
                 COORD: 35.6762° N, 139.6503° E
             </div>
-            <div className="absolute bottom-12 right-12 hidden md:block text-xs font-mono text-neutral-700">
+            <div className="absolute bottom-12 right-12 hidden md:block text-xs font-josefin-sans text-neutral-700">
                 FREQ: 104.5 MHz
             </div>
 
