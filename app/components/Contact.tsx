@@ -35,16 +35,15 @@ export const Contact = () => {
                     </span>
                 </motion.div>
 
-                <h2 className="text-sm md:text-base font-medium tracking-[0.5em] text-neutral-500 uppercase mb-8">
+                <p className="text-sm md:text-base font-medium tracking-[0.5em] text-neutral-500 uppercase mb-8">
                     Ready for Deployment
-                </h2>
+                </p>
 
-                <span className="group relative block" aria-label="Send email to Thomas Chacko">
-                    <h1 className="text-[12vw] leading-[0.8] font-black tracking-tighter text-white mix-blend-difference hover:opacity-50 transition-opacity duration-300">
+                <h2 className="text-[12vw] leading-[0.8] font-black tracking-tighter text-white">
+                    <a href="mailto:contact@thomaschacko.in" className="hover:opacity-50 transition-opacity duration-300 block" aria-label="Send email to Thomas Chacko">
                         LET'S TALK
-                    </h1>
-                    <div className="absolute -bottom-4 left-0 w-full h-1 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                </span>
+                    </a>
+                </h2>
 
                 <div className="mt-16 flex flex-wrap justify-center gap-8 md:gap-16">
                     {["Instagram", "Twitter / X", "LinkedIn", "GitHub"].map((social, i) => (

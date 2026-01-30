@@ -15,37 +15,37 @@ interface GalleryImage {
 const galleryImages: GalleryImage[] = [
     {
         src: "/assets/dirt-bike-rider-participating-races-circuits-adventure-thrill-with-motorcycle (1).jpg",
-        alt: "Off-road Adventure",
+        alt: "Thomas Chacko off-road motorcycle adventure riding dirt bike on challenging terrain - Kerala adventure rider",
         span: "tall",
     },
     {
         src: "/assets/motorcycle-safety-helmet.jpg",
-        alt: "Riding Gear",
+        alt: "Professional motorcycle riding gear and safety equipment - Thomas Chacko adventure motorcycle setup",
         span: "normal",
     },
     {
         src: "/assets/dirt-bike-rider-participating-races-circuits-adventure-thrill-with-motorcycle.jpg",
-        alt: "Trail Riding",
+        alt: "Adventure trail riding motorcycle journey through scenic routes - Thomas Chacko exploring India",
         span: "normal",
     },
     {
         src: "/assets/dirt-bike-rider-participating-races-circuits-adventure-thrill-with-motorcycle.jpg",
-        alt: "Trail Riding",
+        alt: "Dirt bike adventure racing circuits and off-road motorcycle trails - Thomas Chacko riding experience",
         span: "tall",
     },
     {
         src: "/assets/motorcycle-safety-helmet.jpg",
-        alt: "Riding Gear",
+        alt: "Motorcycle helmet and protective riding gear for adventure touring - safety equipment Kerala rider",
         span: "normal",
     },
     {
         src: "/assets/dirt-bike-rider-participating-races-circuits-adventure-thrill-with-motorcycle.jpg",
-        alt: "Trail Riding",
+        alt: "Technical off-road motorcycle trail riding adventure - Thomas Chacko navigating challenging paths",
         span: "normal",
     },
     {
         src: "/assets/dirt-bike-rider-participating-races-circuits-adventure-thrill-with-motorcycle.jpg",
-        alt: "Trail Riding",
+        alt: "Adventure motorcycle touring and exploration rides - Thomas Chacko motorcycle travel stories India",
         span: "normal",
     },
 ];
@@ -152,6 +152,7 @@ export const Gallery = () => {
         <section
             ref={containerRef}
             className="relative py-16 md:py-28 bg-neutral-950 text-white overflow-hidden"
+            aria-label="Thomas Chacko motorcycle adventure photo gallery - off-road riding and travel photography"
         >
             {/* Background Decoration */}
             <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/10 to-transparent" />
@@ -171,14 +172,14 @@ export const Gallery = () => {
                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                             className="inline-block h-px w-12 bg-white/40 origin-left"
                         />
-                        <h2 className="font-cinzel text-xs md:text-sm font-medium tracking-[0.3em] md:tracking-[0.4em] text-white/40 uppercase">
+                        <p className="font-cinzel text-xs md:text-sm font-medium tracking-[0.3em] md:tracking-[0.4em] text-white/40 uppercase">
                             Visual Journey
-                        </h2>
+                        </p>
                     </div>
 
-                    <h3 className="font-cinzel text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none">
+                    <h2 className="font-cinzel text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none">
                         GALLERY
-                    </h3>
+                    </h2>
 
                     <p className="font-josefin-sans mt-6 text-base md:text-lg text-neutral-400 max-w-2xl leading-relaxed">
                         A collection of moments captured between code commits and throttle twists.
