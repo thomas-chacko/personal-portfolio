@@ -23,12 +23,39 @@ const oswald = Oswald({
 export const metadata: Metadata = {
   metadataBase: new URL('https://iamthomas.vercel.app'),
   title: {
-    default: "Thomas Chacko | Developer & Adventure Rider Portfolio",
+    default: "Thomas Chacko | Full-Stack Developer & Adventure Motorcycle Rider from Kochi, Kerala",
     template: "%s | Thomas Chacko"
   },
-  description: "Thomas Chacko - Full-stack developer and adventure motorcycle rider. Explore my portfolio showcasing web development projects, off-road adventures, and the intersection of code and throttle.",
-  keywords: ["Thomas Chacko", "web developer", "full-stack developer", "motorcycle rider", "adventure rider", "portfolio", "software engineer", "off-road riding", "developer portfolio"],
-  authors: [{ name: "Thomas Chacko" }],
+  description: "Thomas Chacko - Professional full-stack web developer and passionate adventure motorcycle rider from Kochi, Kerala, India. Specializing in React, Next.js, TypeScript development. Explore 50+ destinations, 15K+ kilometers of off-road adventures, motorcycle travel stories, and web development portfolio. Follow my journey on YouTube @tom_rev.",
+  keywords: [
+    "Thomas Chacko", 
+    "Thomas Chacko developer", 
+    "Thomas Chacko motorcycle rider",
+    "Thomas Chacko Kochi",
+    "Thomas Chacko Kerala",
+    "full-stack developer Kochi",
+    "web developer Kerala India",
+    "adventure motorcycle rider India",
+    "motorcycle rider Kerala",
+    "off-road rider Kochi",
+    "dirt bike rider India",
+    "React developer Kochi",
+    "Next.js developer Kerala",
+    "TypeScript developer India",
+    "software engineer Kerala",
+    "adventure rider portfolio",
+    "motorcycle travel India",
+    "bike rider developer",
+    "tech and motorcycles",
+    "developer motorcycle enthusiast",
+    "Kochi developer portfolio",
+    "Kerala web developer",
+    "Indian motorcycle rider",
+    "adventure touring India",
+    "tom_rev YouTube",
+    "thomaschacko.in"
+  ],
+  authors: [{ name: "Thomas Chacko", url: "https://iamthomas.vercel.app" }],
   creator: "Thomas Chacko",
   publisher: "Thomas Chacko",
   formatDetection: {
@@ -40,9 +67,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://iamthomas.vercel.app",
-    title: "Thomas Chacko | Developer & Adventure Rider Portfolio",
-    description: "Full-stack developer and adventure motorcycle rider. Merging the digital and physical worlds, one journey at a time.",
-    siteName: "Thomas Chacko Portfolio",
+    title: "Thomas Chacko | Full-Stack Developer & Adventure Motorcycle Rider from Kochi, Kerala",
+    description: "Professional full-stack developer and adventure motorcycle rider from Kochi, Kerala. 50+ destinations explored, 15K+ km ridden. React, Next.js, TypeScript expert. Watch my adventures on YouTube @tom_rev",
+    siteName: "Thomas Chacko - Developer & Motorcycle Rider Portfolio",
     images: [
       {
         url: "/assets/hero-background.jpg",
@@ -54,10 +81,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Thomas Chacko | Developer & Adventure Rider",
-    description: "Full-stack developer and adventure motorcycle rider. Merging the digital and physical worlds.",
+    title: "Thomas Chacko | Full-Stack Developer & Motorcycle Rider Kochi",
+    description: "Professional developer from Kerala, India. Adventure motorcycle rider with 50+ destinations & 15K+ km. React, Next.js expert. YouTube: @tom_rev",
     images: ["/assets/hero-background.jpg"],
-    creator: "@thomaschacko", // Replace with your actual Twitter handle
+    creator: "@thomaschacko",
   },
   robots: {
     index: true,
@@ -69,11 +96,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  verification: {
-    google: 'your-google-verification-code', // Add your Google Search Console verification code
-    // yandex: 'your-yandex-verification-code',
-    // bing: 'your-bing-verification-code',
   },
 };
 
