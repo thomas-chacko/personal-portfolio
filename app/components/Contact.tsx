@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 
 export const Contact = () => {
@@ -10,10 +10,17 @@ export const Contact = () => {
         offset: ["start end", "end end"]
     });
 
-    const y = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+    // Smooth spring physics for buttery scroll
+    const smoothProgress = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
+
+    const y = useTransform(smoothProgress, [0, 1], [-25, 25]);
 
     return (
-        <section ref={container} className="relative min-h-[80vh] flex flex-col items-center justify-center bg-neutral-950 overflow-hidden py-24">
+        <section ref={container} className="relative flex flex-col items-center justify-center bg-neutral-950 overflow-hidden py-24" aria-label="Contact Thomas Chacko">
 
             {/* Background Texture */}
             <div className="absolute inset-0 z-0 opacity-20">
@@ -22,7 +29,7 @@ export const Contact = () => {
             </div>
 
             <div className="relative z-10 text-center px-6">
-                <motion.div style={{ y }} className="mb-8">
+                <motion.div style={{ y, willChange: "transform" }} className="mb-8">
                     <span className="inline-block px-3 py-1 rounded-full border border-green-500/30 text-green-500 text-xs font-mono tracking-widest uppercase bg-green-500/5 backdrop-blur-md">
                         ● System Online
                     </span>
@@ -32,12 +39,12 @@ export const Contact = () => {
                     Ready for Deployment
                 </h2>
 
-                <a href="mailto:hello@thomas.co" className="group relative block">
+                <span className="group relative block" aria-label="Send email to Thomas Chacko">
                     <h1 className="text-[12vw] leading-[0.8] font-black tracking-tighter text-white mix-blend-difference hover:opacity-50 transition-opacity duration-300">
                         LET'S TALK
                     </h1>
                     <div className="absolute -bottom-4 left-0 w-full h-1 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                </a>
+                </span>
 
                 <div className="mt-16 flex flex-wrap justify-center gap-8 md:gap-16">
                     {["Instagram", "Twitter / X", "LinkedIn", "GitHub"].map((social, i) => (
