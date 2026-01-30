@@ -20,7 +20,7 @@ export const Contact = () => {
     const y = useTransform(smoothProgress, [0, 1], [-25, 25]);
 
     return (
-        <section ref={container} className="relative  flex flex-col items-center justify-center bg-neutral-950 overflow-hidden py-24">
+        <section ref={container} className="relative flex flex-col items-center justify-center bg-neutral-950 overflow-hidden py-24" aria-label="Contact Thomas Chacko">
 
             {/* Background Texture */}
             <div className="absolute inset-0 z-0 opacity-20">
@@ -39,12 +39,12 @@ export const Contact = () => {
                     Ready for Deployment
                 </h2>
 
-                <a href="mailto:hello@thomas.co" className="group relative block">
+                <span className="group relative block" aria-label="Send email to Thomas Chacko">
                     <h1 className="text-[12vw] leading-[0.8] font-black tracking-tighter text-white mix-blend-difference hover:opacity-50 transition-opacity duration-300">
                         LET'S TALK
                     </h1>
                     <div className="absolute -bottom-4 left-0 w-full h-1 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                </a>
+                </span>
 
                 <div className="mt-16 flex flex-wrap justify-center gap-8 md:gap-16">
                     {["Instagram", "Twitter / X", "LinkedIn", "GitHub"].map((social, i) => (

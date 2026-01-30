@@ -161,6 +161,7 @@ export const About = () => {
         <motion.section
             ref={container}
             className="relative py-12 lg:py-16 bg-neutral-950 text-white z-20 border-b border-white/5"
+            aria-label="About Thomas Chacko - Developer and Rider"
         >
             <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-12">
                 <div className="flex flex-col lg:flex-row lg:gap-24">
@@ -200,7 +201,7 @@ export const About = () => {
                                 <motion.div style={{ y, willChange: "transform" }} className="relative h-[60vh] w-full">
                                     <Image
                                         src="/assets/motorcycle-safety-helmet.jpg"
-                                        alt="Riding"
+                                        alt="Thomas Chacko's motorcycle helmet and riding gear on mountain pass"
                                         fill
                                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                                         sizes="(max-width: 1024px) 100vw, 60vw"

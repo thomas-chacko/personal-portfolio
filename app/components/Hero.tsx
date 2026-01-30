@@ -48,12 +48,13 @@ export const Hero = () => {
         <section
             ref={containerRef}
             className="sticky top-0 z-0 h-dvh w-full overflow-hidden bg-neutral-950"
+            aria-label="Hero section - Thomas Chacko introduction"
         >
             {/* Background Image - Static, no animations */}
             <div className="absolute inset-0 z-0 w-full h-full">
                 <Image
                     src="/assets/dirt-bike-rider-participating-races-circuits-adventure-thrill-with-motorcycle.jpg"
-                    alt="Hero Background"
+                    alt="Thomas Chacko riding dirt bike on adventure trail"
                     fill
                     priority
                     className="object-cover object-[65%_center] sm:object-center opacity-70"
@@ -80,6 +81,7 @@ export const Hero = () => {
                                 animate={{ scaleX: 1 }}
                                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
                                 className="inline-block h-px w-8 bg-white/60 origin-left"
+                                aria-hidden="true"
                             />
                             <AnimatedText
                                 text="Traveler • Explorer • Dev"
@@ -129,6 +131,7 @@ export const Hero = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5, duration: 1 }}
                 className="absolute bottom-8 right-6 sm:right-12 z-20 hidden sm:flex items-center gap-4"
+                aria-label="Scroll down indicator"
             >
                 <span className="font-cinzel text-sm font-medium tracking-widest text-white/50 uppercase animate-pulse">Scroll</span>
                 <div className="h-px w-12 bg-white/50"></div>
