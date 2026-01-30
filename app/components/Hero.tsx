@@ -54,7 +54,7 @@ export const Hero = () => {
             <div className="absolute inset-0 z-0 w-full h-full">
                 <Image
                     src="/assets/dirt-bike-rider-participating-races-circuits-adventure-thrill-with-motorcycle.jpg"
-                    alt="Thomas Chacko riding dirt bike on adventure trail"
+                    alt="Thomas Chacko adventure motorcycle rider on dirt bike navigating off-road trail in Kerala India - full-stack developer and motorcycle enthusiast"
                     fill
                     priority
                     className="object-cover object-[65%_center] sm:object-center opacity-70"

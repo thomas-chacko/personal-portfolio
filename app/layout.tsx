@@ -116,11 +116,59 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Thomas Chacko",
+    jobTitle: "Full-Stack Web Developer",
+    description: "Professional full-stack developer and adventure motorcycle rider from Kochi, Kerala, India",
+    url: "https://iamthomas.vercel.app",
+    image: "https://iamthomas.vercel.app/assets/hero-background.jpg",
+    sameAs: [
+      "https://youtube.com/@tom_rev",
+      "https://twitter.com/thomaschacko",
+      "https://github.com/thomaschacko",
+      "https://linkedin.com/in/thomaschacko"
+    ],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Kochi",
+      addressRegion: "Kerala",
+      addressCountry: "IN"
+    },
+    knowsAbout: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Full-Stack Development",
+      "Web Development",
+      "Adventure Motorcycle Riding",
+      "Off-Road Riding",
+      "Motorcycle Travel"
+    ],
+    hasOccupation: {
+      "@type": "Occupation",
+      name: "Full-Stack Developer",
+      occupationLocation: {
+        "@type": "City",
+        name: "Kochi, Kerala, India"
+      },
+      skills: "React, Next.js, TypeScript, JavaScript, Node.js, Web Development"
+    }
+  };
+
   return (
     <html lang="en">
       <head>
         <link rel="canonical" href="https://iamthomas.vercel.app" />
         <meta name="theme-color" content="#0a0a0a" />
+        <meta name="geo.region" content="IN-KL" />
+        <meta name="geo.placename" content="Kochi" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} ${josefinSans.variable} ${cinzel.variable} antialiased`}

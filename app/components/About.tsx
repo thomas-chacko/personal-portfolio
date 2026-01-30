@@ -93,7 +93,7 @@ const ParallaxManifesto = () => {
             >
                 <div className="hidden lg:block absolute -left-8 -top-12 text-[10rem] leading-none font-black text-white/2 select-none -z-10 group-hover:text-white/5 transition-colors">01</div>
                 <div className="border-l-4 border-red-500 pl-6 py-2 backdrop-blur-sm bg-black/20 rounded-r-xl">
-                    <h4 className="font-cinzel text-3xl font-bold text-white mb-2">The Analog Escape</h4>
+                    <h3 className="font-cinzel text-3xl font-bold text-white mb-2">The Analog Escape</h3>
                     <div className="h-px w-12 bg-white/50 mb-4" />
                     <p className="font-josefin-sans text-neutral-400 text-lg leading-relaxed">
                         No pixels. No latency. Just the <span className="text-white font-medium">physics of movement</span>.
@@ -109,7 +109,7 @@ const ParallaxManifesto = () => {
             >
                 <div className="hidden lg:block absolute -right-8 -top-12 text-[10rem] leading-none font-black text-white/2 select-none -z-10 group-hover:text-white/5 transition-colors">02</div>
                 <div className="border-r-4 border-blue-500 pr-6 py-2 backdrop-blur-sm bg-black/20 rounded-l-xl flex flex-col items-end">
-                    <h4 className="font-cinzel text-3xl font-bold text-white mb-2">Mental Defrag</h4>
+                    <h3 className="font-cinzel text-3xl font-bold text-white mb-2">Mental Defrag</h3>
                     <div className="h-px w-12 bg-white/50 mb-4" />
                     <p className="font-josefin-sans text-neutral-400 text-lg leading-relaxed">
                         Complex algorithms require clear memory. The rhythm of the road organizes the chaos,
@@ -124,10 +124,10 @@ const ParallaxManifesto = () => {
                 className="relative self-center w-full max-w-xl p-10 bg-linear-to-br from-white/10 to-white/5 border border-white/10 rounded-3xl backdrop-blur-md shadow-2xl"
             >
                 <div className="absolute top-0 right-0 w-40 h-40 bg-purple-500/20 rounded-full blur-[80px] pointer-events-none" />
-                <h4 className="font-cinzel text-xl text-purple-300 mb-6 tracking-widest uppercase flex items-center gap-3">
+                <h3 className="font-cinzel text-xl text-purple-300 mb-6 tracking-widest uppercase flex items-center gap-3">
                     <span className="w-2 h-2 bg-purple-400 rounded-full animate-ping" />
                     System Status
-                </h4>
+                </h3>
                 <p className="font-cinzel text-2xl text-white font-light leading-normal">
                     &quot;The machine needs fuel, but the mind needs <span className="font-bold text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-blue-400">freedom</span>.&quot;
                 </p>
@@ -169,13 +169,13 @@ export const About = () => {
                     {/* Sticky Sidebar */}
                     <div className="lg:w-1/3">
                         <div className="relative lg:sticky lg:top-32">
-                            <h2 className="font-cinzel text-sm font-medium tracking-[0.4em] text-white/40 mb-8 uppercase">
+                            <p className="font-cinzel text-sm font-medium tracking-[0.4em] text-white/40 mb-8 uppercase">
                                 The Developer & Rider
-                            </h2>
-                            <h3 className="font-cinzel text-5xl sm:text-7xl font-bold leading-none mb-8">
+                            </p>
+                            <h2 className="font-cinzel text-5xl sm:text-7xl font-bold leading-none mb-8">
                                 CODE & <br />
                                 <span className="text-neutral-500">THROTTLE</span>
-                            </h3>
+                            </h2>
                             <p className="font-josefin-sans text-lg text-white/60 leading-relaxed max-w-sm">
                                 I write logic for a living, but ride to feel alive. Whether it's a quick breakfast spin or a technical off-road trail, the bike is my reset button.
                             </p>
@@ -201,7 +201,7 @@ export const About = () => {
                                 <motion.div style={{ y, willChange: "transform" }} className="relative h-[60vh] w-full">
                                     <Image
                                         src="/assets/motorcycle-safety-helmet.jpg"
-                                        alt="Thomas Chacko's motorcycle helmet and riding gear on mountain pass"
+                                        alt="Thomas Chacko motorcycle riding gear and safety helmet on scenic mountain pass - adventure motorcycle equipment Kerala India"
                                         fill
                                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                                         sizes="(max-width: 1024px) 100vw, 60vw"
