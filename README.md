@@ -7,4 +7,4 @@ Right Side (Ride): Showcases your Bike Specs & Gear (e.g., "Triumph Tiger 900", 
 
 #footer section
 
-#Selected Works (already exists please check)
+#Selected Works (already exists please check).
