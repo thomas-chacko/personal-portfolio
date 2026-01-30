@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next'
- 
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Thomas Chacko - Developer & Rider Portfolio',
+    name: 'Thomas Chacko - Developer & Adventure Rider',
     short_name: 'Thomas Chacko',
     description: 'Full-stack developer and adventure motorcycle rider portfolio',
     start_url: '/',
