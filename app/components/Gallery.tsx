@@ -98,6 +98,7 @@ const GalleryCard = ({ image, index }: { image: GalleryImage; index: number }) =
                     src={image.src}
                     alt={image.alt}
                     fill
+                    loading="lazy"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />

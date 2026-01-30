@@ -203,6 +203,7 @@ export const About = () => {
                                         src="/assets/motorcycle-safety-helmet.jpg"
                                         alt="Thomas Chacko motorcycle riding gear and safety helmet on scenic mountain pass - adventure motorcycle equipment Kerala India"
                                         fill
+                                        loading="lazy"
                                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                                         sizes="(max-width: 1024px) 100vw, 60vw"
                                     />
