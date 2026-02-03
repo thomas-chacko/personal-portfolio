@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion} from "framer-motion";
 import Image from "next/image";
 
 // Animated Text Component for character-by-character animation
@@ -32,21 +31,8 @@ const AnimatedText = ({ text, className, delay = 0 }: { text: string; className?
 };
 
 export const Hero = () => {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-        checkMobile();
-        window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
-    }, []);
-
     return (
         <section
-            ref={containerRef}
             className="sticky top-0 z-0 h-dvh w-full overflow-hidden bg-neutral-950"
             aria-label="Hero section - Thomas Chacko introduction"
         >
