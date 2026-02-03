@@ -1,8 +1,22 @@
+import dynamic from "next/dynamic";
 import { Hero } from "./components/Hero";
-import { About } from "./components/About";
-import { Gallery } from "./components/Gallery";
-import { Contact } from "./components/Contact";
-import { Footer } from "./components/Footer";
+
+// Dynamic imports for below-the-fold components
+const About = dynamic(() => import("./components/About").then(mod => ({ default: mod.About })), {
+  loading: () => <div className="min-h-screen bg-neutral-950" />
+});
+
+const Gallery = dynamic(() => import("./components/Gallery").then(mod => ({ default: mod.Gallery })), {
+  loading: () => <div className="min-h-screen bg-neutral-950" />
+});
+
+const Contact = dynamic(() => import("./components/Contact").then(mod => ({ default: mod.Contact })), {
+  loading: () => <div className="min-h-screen bg-neutral-950" />
+});
+
+const Footer = dynamic(() => import("./components/Footer").then(mod => ({ default: mod.Footer })), {
+  loading: () => <div className="bg-neutral-950 py-12" />
+});
 
 export default function Home() {
   // Enhanced Structured Data for SEO

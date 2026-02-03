@@ -200,10 +200,11 @@ export const About = () => {
                             <div className="overflow-hidden rounded-sm">
                                 <motion.div style={{ y, willChange: "transform" }} className="relative h-[60vh] w-full">
                                     <Image
-                                        src="/assets/motorcycle-safety-helmet.jpg"
+                                        src="/assets/bikeimg6.jpg"
                                         alt="Thomas Chacko motorcycle riding gear and safety helmet on scenic mountain pass - adventure motorcycle equipment Kerala India"
                                         fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                        loading="lazy"
+                                        className="object-cover transition-transform duration-700 group-hover:scale-105 object-[50%_60%]"
                                         sizes="(max-width: 1024px) 100vw, 60vw"
                                     />
                                     <div className="absolute inset-0 bg-neutral-950/20 group-hover:bg-transparent transition-colors duration-500" />
