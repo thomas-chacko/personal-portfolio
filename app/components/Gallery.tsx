@@ -14,37 +14,37 @@ interface GalleryImage {
 
 const galleryImages: GalleryImage[] = [
     {
-        src: "/assets/dirt-bike-rider-participating-races-circuits-adventure-thrill-with-motorcycle (1).jpg",
+        src: "/assets/bikeimg1.jpg",
         alt: "Thomas Chacko off-road motorcycle adventure riding dirt bike on challenging terrain - Kerala adventure rider",
         span: "tall",
     },
     {
-        src: "/assets/motorcycle-safety-helmet.jpg",
+        src: "/assets/bikeimg8.jpg",
         alt: "Professional motorcycle riding gear and safety equipment - Thomas Chacko adventure motorcycle setup",
         span: "normal",
     },
     {
-        src: "/assets/dirt-bike-rider-participating-races-circuits-adventure-thrill-with-motorcycle.jpg",
+        src: "/assets/jacket.jpg",
         alt: "Adventure trail riding motorcycle journey through scenic routes - Thomas Chacko exploring India",
         span: "normal",
     },
     {
-        src: "/assets/dirt-bike-rider-participating-races-circuits-adventure-thrill-with-motorcycle.jpg",
+        src: "/assets/bikeimg7.jpg",
         alt: "Dirt bike adventure racing circuits and off-road motorcycle trails - Thomas Chacko riding experience",
         span: "tall",
     },
     {
-        src: "/assets/motorcycle-safety-helmet.jpg",
+        src: "/assets/vagamon1.jpg",
         alt: "Motorcycle helmet and protective riding gear for adventure touring - safety equipment Kerala rider",
         span: "normal",
     },
     {
-        src: "/assets/dirt-bike-rider-participating-races-circuits-adventure-thrill-with-motorcycle.jpg",
+        src: "/assets/vagamon2.jpg",
         alt: "Technical off-road motorcycle trail riding adventure - Thomas Chacko navigating challenging paths",
         span: "normal",
     },
     {
-        src: "/assets/dirt-bike-rider-participating-races-circuits-adventure-thrill-with-motorcycle.jpg",
+        src: "/assets/bikeimg10.jpg",
         alt: "Adventure motorcycle touring and exploration rides - Thomas Chacko motorcycle travel stories India",
         span: "normal",
     },
