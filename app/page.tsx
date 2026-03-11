@@ -27,8 +27,8 @@ export default function Home() {
     "alternateName": "Tom Rev",
     "url": "https://iamthomas.vercel.app",
     "image": "https://iamthomas.vercel.app/assets/hero-background.jpg",
-    "jobTitle": "Full-Stack Web Developer",
-    "description": "Professional full-stack web developer and adventure motorcycle rider from Kochi, Kerala, India. Specializing in React, Next.js, and TypeScript development with a passion for off-road motorcycle adventures.",
+    "jobTitle": "Front End Developer & Full-Stack Developer",
+    "description": "Thomas Chacko is a professional front end developer, full-stack web developer, voyager, and explorer from Kochi, Kerala, India. Known for creating one of the best animated personal portfolio websites using React, Next.js, and TypeScript.",
     "sameAs": [
       "https://github.com/thomas-chacko",
       "https://www.linkedin.com/in/thomas-chacko-7003a9283",
@@ -36,19 +36,19 @@ export default function Home() {
       "https://instagram.com/thomaschacko.in"
     ],
     "knowsAbout": [
-      "Web Development", 
+      "Front End Developer",
       "Full-Stack Development", 
+      "Best Portfolio Website Design",
+      "Animated Personal Portfolio Website",
       "React.js",
       "Next.js",
       "TypeScript",
       "JavaScript",
+      "UI Animations",
+      "Voyager",
+      "Explorer",
       "Motorcycle Riding", 
-      "Adventure Travel", 
-      "Off-Road Riding",
-      "Dirt Bike Riding",
-      "Software Engineering",
-      "Frontend Development",
-      "Backend Development"
+      "Adventure Travel"
     ],
     "homeLocation": {
       "@type": "Place",
@@ -62,23 +62,23 @@ export default function Home() {
     },
     "hasOccupation": {
       "@type": "Occupation",
-      "name": "Full-Stack Developer",
+      "name": "Front End Developer",
       "occupationLocation": {
         "@type": "City",
         "name": "Kochi"
       },
-      "skills": "React, Next.js, TypeScript, JavaScript, Web Development, Full-Stack Development"
+      "skills": "Frontend Development, React, Next.js, TypeScript, JavaScript, Web Animations, Full-Stack Development"
     },
     "interestIn": [
       {
         "@type": "Thing",
-        "name": "Adventure Motorcycle Riding",
-        "description": "Off-road and adventure motorcycle riding across India"
+        "name": "Exploration & Voyaging",
+        "description": "Traveling, exploring new places and experiencing different cultures as a voyager and explorer."
       },
       {
         "@type": "Thing",
-        "name": "Web Development",
-        "description": "Building modern web applications with React and Next.js"
+        "name": "Web Development & Design",
+        "description": "Building modern animated web applications and top-tier creative portfolio websites with React and Next.js"
       }
     ]
   };

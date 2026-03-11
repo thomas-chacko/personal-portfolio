@@ -15,22 +15,22 @@ interface GalleryImage {
 const galleryImages: GalleryImage[] = [
     {
         src: "/assets/bikeimg1.jpg",
-        alt: "Thomas Chacko off-road motorcycle adventure riding dirt bike on challenging terrain - Kerala adventure rider",
+        alt: "Thomas Chacko riding dirt bike on challenging off-road Kerala terrain - adventure voyager",
         span: "tall",
     },
     {
         src: "/assets/bikeimg8.jpg",
-        alt: "Professional motorcycle riding gear and safety equipment - Thomas Chacko adventure motorcycle setup",
+        alt: "Thomas Chacko wearing full professional adventure motorcycle gear ready for exploration",
         span: "normal",
     },
     {
         src: "/assets/jacket.jpg",
-        alt: "Adventure trail riding motorcycle journey through scenic routes - Thomas Chacko exploring India",
+        alt: "Adventure motorcycle jacket used by Thomas Chacko while touring crossing Indian landscapes",
         span: "normal",
     },
     {
         src: "/assets/bikeimg7.jpg",
-        alt: "Dirt bike adventure racing circuits and off-road motorcycle trails - Thomas Chacko riding experience",
+        alt: "Thomas Chacko racing on a dirt bike circuit showcasing off-road riding skills in Kerala",
         span: "tall",
     },
     {
@@ -98,7 +98,9 @@ const GalleryCard = ({ image, index }: { image: GalleryImage; index: number }) =
                     src={image.src}
                     alt={image.alt}
                     fill
-                    loading="lazy"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    priority={index === 0}
+                    quality={85}
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
@@ -151,9 +153,10 @@ export const Gallery = () => {
 
     return (
         <section
+            id="gallery"
             ref={containerRef}
             className="relative py-16 md:py-28 bg-neutral-950 text-white overflow-hidden"
-            aria-label="Thomas Chacko motorcycle adventure photo gallery - off-road riding and travel photography"
+            aria-label="Thomas Chacko motorcycle adventure and exploration photo gallery"
         >
             {/* Background Decoration */}
             <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/10 to-transparent" />

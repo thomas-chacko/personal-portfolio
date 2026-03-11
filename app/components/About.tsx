@@ -159,6 +159,7 @@ export const About = () => {
 
     return (
         <motion.section
+            id="about"
             ref={container}
             className="relative py-12 lg:py-16 bg-neutral-950 text-white z-20 border-b border-white/5"
             aria-label="About Thomas Chacko - Developer and Rider"
@@ -170,7 +171,7 @@ export const About = () => {
                     <div className="lg:w-1/3">
                         <div className="relative lg:sticky lg:top-32">
                             <p className="font-cinzel text-sm font-medium tracking-[0.4em] text-white/40 mb-8 uppercase">
-                                The Developer & Rider
+                                The Developer, Voyager & Explorer
                             </p>
                             <h2 className="font-cinzel text-5xl sm:text-7xl font-bold leading-none mb-8">
                                 CODE & <br />
@@ -201,7 +202,7 @@ export const About = () => {
                                 <motion.div style={{ y, willChange: "transform" }} className="relative h-[60vh] w-full">
                                     <Image
                                         src="/assets/bikeimg6.jpg"
-                                        alt="Thomas Chacko motorcycle riding gear and safety helmet on scenic mountain pass - adventure motorcycle equipment Kerala India"
+                                        alt="Thomas Chacko full-stack developer, voyager and explorer gear on scenic mountain pass Kerala India"
                                         fill
                                         loading="lazy"
                                         className="object-cover transition-transform duration-700 group-hover:scale-105 object-[50%_60%]"

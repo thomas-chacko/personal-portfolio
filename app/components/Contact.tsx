@@ -20,7 +20,7 @@ export const Contact = () => {
     const y = useTransform(smoothProgress, [0, 1], [-25, 25]);
 
     return (
-        <section ref={container} className="relative flex flex-col items-center justify-center bg-neutral-950 overflow-hidden py-24" aria-label="Contact Thomas Chacko">
+        <section id="contact" ref={container} className="relative flex flex-col items-center justify-center bg-neutral-950 overflow-hidden py-24" aria-label="Contact Thomas Chacko">
 
             {/* Background Texture */}
             <div className="absolute inset-0 z-0 opacity-20">
@@ -40,17 +40,24 @@ export const Contact = () => {
                 </p>
 
                 <h2 className="text-[12vw] leading-[0.8] font-black tracking-tighter text-white">
-                    <a href="mailto:contact@thomaschacko.in" className="hover:opacity-50 transition-opacity duration-300 block" aria-label="Send email to Thomas Chacko">
+                    <a href="mailto:thomschacko11@gmail.com" className="hover:opacity-50 transition-opacity duration-300 block" aria-label="Send email to Thomas Chacko">
                         LET'S TALK
                     </a>
                 </h2>
 
                 <div className="mt-16 flex flex-wrap justify-center gap-8 md:gap-16">
-                    {["Instagram", "Twitter / X", "LinkedIn", "GitHub"].map((social, i) => (
-                        <a key={i} href="#" className="text-sm font-bold tracking-widest uppercase text-neutral-400 hover:text-white hover:underline underline-offset-8 transition-colors">
-                            {social}
-                        </a>
-                    ))}
+                    <a href="https://instagram.com/thomaschacko.in" target="_blank" rel="noopener noreferrer" className="text-sm font-bold tracking-widest uppercase text-neutral-400 hover:text-white hover:underline underline-offset-8 transition-colors" aria-label="Thomas Chacko Instagram profile">
+                        Instagram
+                    </a>
+                    <a href="https://twitter.com/thomaschacko" target="_blank" rel="noopener noreferrer" className="text-sm font-bold tracking-widest uppercase text-neutral-400 hover:text-white hover:underline underline-offset-8 transition-colors" aria-label="Thomas Chacko Twitter profile">
+                        Twitter / X
+                    </a>
+                    <a href="https://www.linkedin.com/in/thomas-chacko-7003a9283" target="_blank" rel="noopener noreferrer" className="text-sm font-bold tracking-widest uppercase text-neutral-400 hover:text-white hover:underline underline-offset-8 transition-colors" aria-label="Thomas Chacko LinkedIn profile">
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/thomas-chacko" target="_blank" rel="noopener noreferrer" className="text-sm font-bold tracking-widest uppercase text-neutral-400 hover:text-white hover:underline underline-offset-8 transition-colors" aria-label="Thomas Chacko GitHub profile">
+                        GitHub
+                    </a>
                 </div>
             </div>
 

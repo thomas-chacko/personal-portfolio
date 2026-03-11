@@ -40,7 +40,7 @@ export const Hero = () => {
             <div className="absolute inset-0 z-0 w-full h-full">
                 <Image
                     src="/assets/dirt-bike-rider-participating-races-circuits-adventure-thrill-with-motorcycle.jpg"
-                    alt="Thomas Chacko adventure motorcycle rider on dirt bike navigating off-road trail in Kerala India - full-stack developer and motorcycle enthusiast"
+                    alt="Thomas Chacko voyager, explorer, and full-stack developer on dirt bike navigating off-road trail in Kerala India"
                     fill
                     priority
                     className="object-cover object-[65%_center] sm:object-center opacity-70"
@@ -70,7 +70,7 @@ export const Hero = () => {
                                 aria-hidden="true"
                             />
                             <AnimatedText
-                                text="Traveler • Explorer • Dev"
+                                text="Voyager • Explorer • Full-Stack Dev"
                                 className="font-cinzel text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-white/80"
                                 delay={0.8}
                             />
