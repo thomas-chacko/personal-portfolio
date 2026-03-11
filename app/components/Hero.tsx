@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion} from "framer-motion";
 import Image from "next/image";
 
 // Animated Text Component for character-by-character animation
@@ -32,21 +31,8 @@ const AnimatedText = ({ text, className, delay = 0 }: { text: string; className?
 };
 
 export const Hero = () => {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-        checkMobile();
-        window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
-    }, []);
-
     return (
         <section
-            ref={containerRef}
             className="sticky top-0 z-0 h-dvh w-full overflow-hidden bg-neutral-950"
             aria-label="Hero section - Thomas Chacko introduction"
         >
@@ -54,7 +40,7 @@ export const Hero = () => {
             <div className="absolute inset-0 z-0 w-full h-full">
                 <Image
                     src="/assets/dirt-bike-rider-participating-races-circuits-adventure-thrill-with-motorcycle.jpg"
-                    alt="Thomas Chacko adventure motorcycle rider on dirt bike navigating off-road trail in Kerala India - full-stack developer and motorcycle enthusiast"
+                    alt="Thomas Chacko voyager, explorer, and full-stack developer on dirt bike navigating off-road trail in Kerala India"
                     fill
                     priority
                     className="object-cover object-[65%_center] sm:object-center opacity-70"
@@ -84,7 +70,7 @@ export const Hero = () => {
                                 aria-hidden="true"
                             />
                             <AnimatedText
-                                text="Traveler • Explorer • Dev"
+                                text="Voyager • Explorer • Full-Stack Dev"
                                 className="font-cinzel text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-white/80"
                                 delay={0.8}
                             />

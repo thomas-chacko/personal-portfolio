@@ -19,8 +19,13 @@ export const Footer = () => {
                     </span>
                 </div>
 
-                <div className="text-xs text-neutral-600 font-medium">
-                    © {currentYear} Personal Portfolio.
+                <div className="flex flex-col md:flex-row items-center gap-4 text-xs text-neutral-600 font-medium font-josefin-sans mt-8 md:mt-0">
+                    <div className="flex gap-4">
+                        <a href="#about" aria-label="About Thomas Chacko" className="hover:text-white transition-colors">About</a>
+                        <a href="#gallery" aria-label="Thomas Chacko Photo Gallery" className="hover:text-white transition-colors">Gallery</a>
+                        <a href="mailto:thomschacko11@gmail.com" aria-label="Contact Thomas Chacko" className="hover:text-white transition-colors">Contact</a>
+                    </div>
+                    <span>© {currentYear} Thomas Chacko Portfolio.</span>
                 </div>
 
             </div>
