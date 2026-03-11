@@ -69,6 +69,9 @@ export const Hero = () => {
             {/* Content Container */}
             <div className="relative z-10 flex h-full flex-col justify-end pb-24 sm:justify-center sm:pb-0 px-6 sm:px-12">
                 <div className="max-w-360">
+                    {/* Primary SEO Header - Visually Hidden but readable by search engines */}
+                    <h1 className="sr-only">Thomas Chacko (Thomas) - Best Front End Developer, Full-Stack Web Developer, Voyager & Explorer from Kochi, Kerala, India</h1>
+
                     <div className="overflow-hidden">
                         <motion.div
                             initial={{ y: "100%" }}
@@ -92,25 +95,25 @@ export const Hero = () => {
                     </div>
 
                     <div className="overflow-hidden">
-                        <motion.h1
+                        <motion.h2
                             initial={{ y: "100%" }}
                             animate={{ y: 0 }}
                             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
                             className="font-cinzel text-[13vw] sm:text-8xl lg:text-9xl font-bold tracking-wide text-white/90 leading-[0.9] sm:leading-[0.9]"
                         >
                             BEYOND
-                        </motion.h1>
+                        </motion.h2>
                     </div>
 
                     <div className="overflow-hidden">
-                        <motion.h1
+                        <motion.h2
                             initial={{ y: "100%" }}
                             animate={{ y: 0 }}
                             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
                             className="font-cinzel text-[13vw] sm:text-8xl lg:text-9xl font-bold tracking-tight text-white/60 leading-[0.9] sm:leading-[0.9]"
                         >
                             HORIZONS
-                        </motion.h1>
+                        </motion.h2>
                     </div>
 
                     <motion.p

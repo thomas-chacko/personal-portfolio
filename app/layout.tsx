@@ -8,37 +8,53 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 export const metadata: Metadata = {
   metadataBase: new URL('https://iamthomas.vercel.app'),
   title: {
-    default: "Thomas Chacko | Full-Stack Developer & Adventure Motorcycle Rider from Kochi, Kerala",
+    default: "Thomas Chacko | Front End & Full-Stack Developer",
     template: "%s | Thomas Chacko"
   },
-  description: "Thomas Chacko - Professional full-stack web developer and passionate adventure motorcycle rider from Kochi, Kerala, India. Specializing in React, Next.js, TypeScript development. Explore 50+ destinations, 15K+ kilometers of off-road adventures, motorcycle travel stories, and web development portfolio. Follow my journey on YouTube @tom_rev.",
+  description: "Thomas Chacko - Best front end developer and full-stack web developer from Kochi, Kerala, India. Welcome to my animated personal portfolio website. Specializing in React, Next.js, and TypeScript. Also an avid voyager and explorer.",
   keywords: [
-    "Thomas Chacko", 
-    "Thomas Chacko developer", 
+    // Core Identity
+    "Thomas",
+    "Thomas Chacko",
+    "Thomas developer",
+    "Thomas Chacko developer",
     "Thomas Chacko motorcycle rider",
+    "Thomas Chacko full stack developer",
+    "Thomas Chacko front end developer",
+    "Thomas Chacko voyager",
+    "Thomas Chacko explorer",
     "Thomas Chacko Kochi",
     "Thomas Chacko Kerala",
+    // Roles
+    "front end developer",
+    "front end developer Kochi",
+    "best front end developer Kerala",
+    "full-stack developer",
     "full-stack developer Kochi",
+    "web developer",
+    "web developer Kochi",
     "web developer Kerala India",
-    "adventure motorcycle rider India",
-    "motorcycle rider Kerala",
-    "off-road rider Kochi",
-    "dirt bike rider India",
     "React developer Kochi",
     "Next.js developer Kerala",
     "TypeScript developer India",
     "software engineer Kerala",
-    "adventure rider portfolio",
-    "motorcycle travel India",
-    "bike rider developer",
-    "tech and motorcycles",
-    "developer motorcycle enthusiast",
-    "Kochi developer portfolio",
-    "Kerala web developer",
-    "Indian motorcycle rider",
-    "adventure touring India",
-    "tom_rev YouTube",
-    "thomaschacko.in"
+    // Portfolio Descriptors
+    "best portfolio website",
+    "best portfolio website Kerala",
+    "best portfolio website Kochi",
+    "animated personal portfolio website",
+    "creative portfolio website",
+    "top developer portfolio",
+    "best developer portfolio 2024",
+    "interactive portfolio website",
+    // Secondary Identity
+    "voyager India",
+    "explorer Kerala",
+    "adventure motorcycle rider India",
+    "motorcycle rider Kerala",
+    "off-road rider Kochi",
+    "motovlogger Kerala",
+    "tech and motorcycles"
   ],
   authors: [{ name: "Thomas Chacko", url: "https://iamthomas.vercel.app" }],
   creator: "Thomas Chacko",
@@ -52,22 +68,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://iamthomas.vercel.app",
-    title: "Thomas Chacko | Full-Stack Developer & Adventure Motorcycle Rider from Kochi, Kerala",
-    description: "Professional full-stack developer and adventure motorcycle rider from Kochi, Kerala. 50+ destinations explored, 15K+ km ridden. React, Next.js, TypeScript expert. Watch my adventures on YouTube @tom_rev",
-    siteName: "Thomas Chacko - Developer & Motorcycle Rider Portfolio",
+    title: "Thomas Chacko | Best Front End Developer - Animated Portfolio",
+    description: "Best front end developer and full-stack web developer from Kochi, Kerala. Creator of an award-winning animated personal portfolio website. React & Next.js expert.",
+    siteName: "Thomas Chacko - Developer, Voyager & Explorer",
     images: [
       {
         url: "/assets/hero-background.jpg",
         width: 1200,
         height: 630,
-        alt: "Thomas Chacko - Developer & Rider",
+        alt: "Thomas Chacko - Front End Developer & Explorer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Thomas Chacko | Full-Stack Developer & Motorcycle Rider Kochi",
-    description: "Professional developer from Kerala, India. Adventure motorcycle rider with 50+ destinations & 15K+ km. React, Next.js expert. YouTube: @tom_rev",
+    title: "Thomas Chacko | Best Front End & Full-Stack Developer",
+    description: "Professional developer, voyager, and explorer from Kerala, India. Check out my animated personal portfolio website.",
     images: ["/assets/hero-background.jpg"],
     creator: "@thomaschacko",
   },
@@ -105,8 +121,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Thomas Chacko",
-    jobTitle: "Full-Stack Web Developer",
-    description: "Professional full-stack developer and adventure motorcycle rider from Kochi, Kerala, India",
+    jobTitle: "Front End Developer & Full-Stack Web Developer",
+    description: "Thomas Chacko - Best front end developer, full-stack developer, voyager, and explorer from Kochi, Kerala, India. Creator of an animated personal portfolio website.",
     url: "https://iamthomas.vercel.app",
     image: "https://iamthomas.vercel.app/assets/hero-background.jpg",
     sameAs: [
@@ -126,20 +142,24 @@ export default function RootLayout({
       "Next.js",
       "TypeScript",
       "JavaScript",
+      "Front End Development",
       "Full-Stack Development",
-      "Web Development",
-      "Adventure Motorcycle Riding",
-      "Off-Road Riding",
-      "Motorcycle Travel"
+      "Web Design",
+      "Web Animations",
+      "Creative Portfolios",
+      "Best Portfolio Website Design",
+      "Voyager",
+      "Explorer",
+      "Adventure Motorcycle Riding"
     ],
     hasOccupation: {
       "@type": "Occupation",
-      name: "Full-Stack Developer",
+      name: "Front End & Full-Stack Developer",
       occupationLocation: {
         "@type": "City",
         name: "Kochi, Kerala, India"
       },
-      skills: "React, Next.js, TypeScript, JavaScript, Node.js, Web Development"
+      skills: "React, Next.js, TypeScript, JavaScript, Front End Development, UI/UX Animations, Node.js"
     }
   };
 
